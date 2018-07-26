@@ -8,8 +8,8 @@ require "rspec/expectations"
 require "selenium-webdriver"
 #require 'capybara/selenium/driver'
 require 'capybara/cucumber'
-require 'minitest'
-require 'minitest/autorun'
+#require 'minitest'
+#require 'minitest/autorun'
 require 'ffaker'
 
 

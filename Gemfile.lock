@@ -183,7 +183,6 @@ DEPENDENCIES
   celerity
   cucumber (= 1.1.4)
   ffaker (= 2.9.0)
-  minitest (= 5.11.3)
   rails
   rspec
   rspec-core (= 3.7.1)
