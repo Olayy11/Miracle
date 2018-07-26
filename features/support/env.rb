@@ -10,6 +10,6 @@ require "selenium-webdriver"
 require 'capybara/cucumber'
 require 'minitest'
 require 'minitest/autorun'
-
+require 'ffaker'
 
 

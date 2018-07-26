@@ -19,9 +19,8 @@ gem 'celerity'
 gem 'capybara-celerity'
 gem 'rspec-core', '3.7.1'
 gem 'rails'
-#gem 'minitest'
 group :test do
-  gem 'minitest'
+  gem 'minitest', '5.11.3'
 end
-gem 'shoulda-matchers'
-
+gem 'webmock'
+gem 'ffaker', '2.9.0'
