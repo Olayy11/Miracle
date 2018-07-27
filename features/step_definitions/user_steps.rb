@@ -2,10 +2,21 @@ Capybara.app_host = 'https://staging.outeast.com'
 header = '.Header-actionName'
 modal = '.Modal-content'
 
-
 Given /^I am on (.+)$/ do |url|
   visit '/';
 end
+
+=begin
+Given /^I am logged on (.+)$/ do |url|
+  visit '/'
+  find('div.Header-actionWrapper').find('a.Header-actionName:nth-child(1)').click
+  email = FFaker::Internet.email
+  fill_in 'email', with: email  #=> "kirsten.greenholt@corkeryfisher.info"
+  fill_in 'password', :with => password
+  click_button 'Sign'
+  Capybara.default_max_wait_time
+end
+=end
 
 #common part for login steps
 When /^I click on 'Sign in'$/  do
