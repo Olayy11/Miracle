@@ -13,3 +13,4 @@ gem 'rails'
 #end
 gem 'webmock'
 gem 'ffaker', '2.9.0'
+gem 'capybara-screenshot' #, :group => :test

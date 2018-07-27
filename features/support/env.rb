@@ -10,5 +10,8 @@ require "selenium-webdriver"
 #require 'minitest'
 #require 'minitest/autorun'
 require 'ffaker'
+require 'capybara/rspec'
+require 'capybara-screenshot/cucumber'
+require 'capybara-screenshot/rspec'
 
 

@@ -14,5 +14,10 @@ Capybara.default_max_wait_time = 10
 #Capybara.javascript_driver = :webkit
 Capybara.ignore_hidden_elements = true
 
+Capybara.save_path = "./tmp"
+
+Capybara::Screenshot.register_driver(:chrome) do |driver, path|
+  driver.browser.save_screenshot(path)
+end
 
 #

@@ -57,6 +57,9 @@ GEM
     capybara-celerity (0.0.1)
       capybara (>= 0.4.1)
       celerity (>= 0.7.9)
+    capybara-screenshot (1.0.21)
+      capybara (>= 1.0, < 4)
+      launchy
     celerity (0.9.2)
     childprocess (0.9.0)
       ffi (~> 1.0, >= 1.0.11)
@@ -90,6 +93,8 @@ GEM
     hashdiff (0.3.7)
     i18n (1.0.1)
       concurrent-ruby (~> 1.0)
+    launchy (2.4.3)
+      addressable (~> 2.3)
     loofah (2.2.2)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -181,6 +186,7 @@ PLATFORMS
 DEPENDENCIES
   capybara
   capybara-celerity
+  capybara-screenshot
   celerity
   cucumber
   ffaker (= 2.9.0)
