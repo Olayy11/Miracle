@@ -29,3 +29,17 @@ Feature: Header Seacrh
     When I click on 'Search'
     When I start writing "blasblabla"
     Then I should see message about NO RESULTS
+
+
+  Scenario: Direct from results page (address)
+    When I click on 'Search'
+    When I start writing "124"
+    Then I should see all results with "124"
+    Then I click any result
+And I direct to SRP with selected "124" addresses
+#
+#  Scenario: Direct from results page (town)
+#    When I click on 'Search'
+#    When I start writing "134"
+#    Then I click any result
+#    And I direct to HDP page with this town
