@@ -1,4 +1,4 @@
-Feature: Login to Outeast
+Feature: Sign_up to Outeast
   Background:
     Given I am on Outeast
 

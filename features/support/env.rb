@@ -14,4 +14,11 @@ require 'capybara/rspec'
 require 'capybara-screenshot/cucumber'
 require 'capybara-screenshot/rspec'
 
+require 'base64'
+
+Capybara.register_driver :selenium do |app|
+  Capybara::Selenium::Driver.new(app, browser: :chrome)
+end
+Capybara::Screenshot.autosave_on_failure = false
+Capybara::Screenshot.prune_strategy = :keep_last_run
 

@@ -6,6 +6,8 @@ Given /^I am on (.+)$/ do |url|
   visit '/';
 end
 
+
+
 =begin
 Given /^I am logged on (.+)$/ do |url|
   visit '/'
