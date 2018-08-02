@@ -1,7 +1,17 @@
   /*
-  cucumber  --format pretty --expand --format json -o "./report/file_path.json" (first)
+Run test
+    cucumber  --format pretty --expand --format json -o "./report/file_path.json" (first)
+    ruby report_builder.rb  (report with diagram, after first!)
+    *
+    cucumber features/ --format html --out ./report/reports.html
+    *
+    bundle exec parallel_cucumber features/
 
-  cucumber features/search_header.feature --format html --out ./report/reports.html
+Server license
+    http://jetbrains.license.laucyun.com/
 
-  ruby report_builder.rb  (report with diagram, after first!)
+Parallel test
+    http://shashikantjagtap.net/running-cucumber-features-in-parallel-and-aggregating-reports/
+    https://chengl.com/life-is-short-run-tests-in-parallel/
+    https://tech.just-eat.com/2015/10/12/run-your-tests-faster-with-parallel-cucumber/
   */

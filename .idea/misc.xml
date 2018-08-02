@@ -4,6 +4,8 @@
     <option name="languageLevel" value="ES6" />
   </component>
   <component name="ProjectPlainTextFileTypeManager">
+    <file url="file://$PROJECT_DIR$/features/200.feature" />
+    <file url="file://$PROJECT_DIR$/features/step_definitions/200.rb" />
     <file url="file://$PROJECT_DIR$/metod.rb" />
     <file url="file://$PROJECT_DIR$/note.html" />
   </component>

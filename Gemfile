@@ -13,4 +13,7 @@ gem 'rails'
 #end
 gem 'webmock'
 gem 'ffaker', '2.9.0'
-gem 'capybara-screenshot' #, :group => :test
+gem 'capybara-screenshot'
+gem 'capybara-webkit', '1.15.0'
+gem 'rspec-rails'
+gem 'parallel_tests'

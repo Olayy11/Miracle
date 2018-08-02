@@ -6,17 +6,21 @@ Capybara.register_driver :chrome do |app|
   Capybara::Selenium::Driver.new(app, browser: :chrome, desired_capabilities: capabilities)
 end
 
-Capybara.javascript_driver = :chrome
+#Capybara.javascript_driver = :chrome
 Capybara.default_driver=:chrome
-
+#Capybara.default_driver=:webkit
 
 
 Capybara.default_max_wait_time = 10
-#Capybara.javascript_driver = :webkit
+Capybara.javascript_driver = :webkit
+
 Capybara.ignore_hidden_elements = true
 
 #Capybara.save_path = "./tmp"
 
+# Capybara::Webkit.configure do |config|
+#   config.allow_unknown_urls
+# end
 
 Capybara::Screenshot.register_driver(:chrome) do |driver, path|
   driver.browser.save_screenshot(path)
@@ -35,3 +39,11 @@ After do |scenario|
     picture
   end
 end
+
+#def response_headers
+#raise Capybara::NotSupportedByDriverError, 'Capybara::Driver::Base#response_headers'
+#end
+
+#def status_code
+#  raise Capybara::NotSupportedByDriverError, 'Capybara::Driver::Base#status_code'
+#end

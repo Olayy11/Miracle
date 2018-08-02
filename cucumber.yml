@@ -1,0 +1,1 @@
+default: --format html --out ./report/parallel/report<%= ENV['TEST_ENV_NUMBER'] %>.html  --format ParallelTests::Cucumber::FailuresLogger --out ./report/parallel/cucumber_failures.log  --format pretty ParallelTests::Cucumber::RuntimeLogger --out ./report/parallel/parallel_runtime_cucumber.log

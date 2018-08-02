@@ -1,5 +1,5 @@
 module VarHelper
-  towns = '.SearchResults-category:nth-child(1) .SearchResults-item',
+ towns = '.SearchResults-category:nth-child(1) .SearchResults-item',
   towns_title = '.SearchResults-category:nth-child(1) >.SearchResults-title',
   address='.SearchResults-category:nth-child(2) .SearchResults-item'
   address_title='.SearchResults-category:nth-child(2) >.SearchResults-title'
@@ -8,9 +8,3 @@ module VarHelper
   internet_number = '.SearchResults-category:nth-child(4) .SearchResults-item'
   in_title = '.SearchResults-category:nth-child(4) >.SearchResults-title'
 end
-
-# def normalize_whitespace(text)
-#   warn 'DEPRECATED: Capybara::Helpers::normalize_whitespace is deprecated, please update your driver'
-#   text.to_s.gsub(/[[:space:]]+/, ' ').strip
-# end
-

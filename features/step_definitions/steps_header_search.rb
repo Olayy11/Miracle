@@ -8,6 +8,10 @@ area_title = '.SearchResults-category:nth-child(3) >.SearchResults-title'
 internet_number = '.SearchResults-category:nth-child(4) .SearchResults-item'
 in_title = '.SearchResults-category:nth-child(4) >.SearchResults-title'
 
+#require "./helper"
+require_relative 'helper'
+include VarHelper
+
 And (/^I logged$/) do
   find('div.Header-actionWrapper').find('a.Header-actionName:nth-child(1)').click
   fill_in 'email', :with => '8@gmail.com'

@@ -7,6 +7,6 @@ ReportBuilder.configure do |config|
   config.report_tabs = %w[Overview Features Scenarios Errors]
   config.report_title = 'Cucumber web automation test results'
   config.compress_images = false
-  config.additional_info = { 'Project name' => 'Test', 'Report generated' => time, Browser: 'Chrome' }
+  config.additional_info = { 'Project name' => 'Staging.outeast', 'Report generated' => time, Browser: 'Chrome' }
 end
 ReportBuilder.build_report

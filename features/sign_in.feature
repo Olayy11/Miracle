@@ -4,7 +4,7 @@ Feature: Login to Outeast
 
   Scenario: Login via valid data
     When I click on 'Sign in'
-    When I login with "8@gmail.com" username and "qwertyQ15" password
+    When I login with "8@gmail.com" username and "qwertyQ1" password
     Then I successfully login
 
   Scenario: Login via invalid data
