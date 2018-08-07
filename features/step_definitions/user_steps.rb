@@ -84,5 +84,3 @@ When /^I see message about wrong password$/ do
   expect(page).to have_css(modal, text: 'Your password must be at least 8 characters long')
 end
 
-
-
