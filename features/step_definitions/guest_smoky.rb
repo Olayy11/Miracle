@@ -1,0 +1,1 @@
+expected.page('.CompactSearchBar-link.CompactSearchBar-link--sales.isActive').isVisiable
