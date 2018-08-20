@@ -72,3 +72,4 @@ end
 def footer_items(item)
 find(".Footer-quickLink", :text => item).click
 end
+

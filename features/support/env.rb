@@ -16,6 +16,8 @@ require 'capybara-screenshot/rspec'
 require 'base64'
 require 'rails'
 require 'capybara-webkit'
+require 'capybara/json'
+#include Capybara::Json
 
 Capybara.register_driver :selenium do |app|
   Capybara::Selenium::Driver.new(app, browser: :chrome)

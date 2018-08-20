@@ -1,0 +1,22 @@
+Using the default profile...
+Feature: Smoky
+
+  Background: [90m            # /Users/ova/RubymineProjects/Miracle/features/guest_smoky.feature:2[0m
+    [32mGiven I am on [32m[1mOuteast[0m[0m[32m[90m # features/step_definitions/user_steps.rb:5[0m[0m
+    [32mAnd I am guest[90m        # features/step_definitions/guest_smoky.rb:5[0m[0m
+
+  Scenario: Slider/HDP[90m                   # /Users/ova/RubymineProjects/Miracle/features/guest_smoky.feature:183[0m
+    [32mWhen I go to Sales page[90m              # features/step_definitions/guest_smoky.rb:219[0m[0m
+    [32mThen I click any listing[90m             # features/step_definitions/guest_smoky.rb:313[0m[0m
+    [32mThen I click > on main photo[90m         # features/step_definitions/guest_smoky.rb:391[0m[0m
+    [32mThen I click < on main photo[90m         # features/step_definitions/guest_smoky.rb:388[0m[0m
+    [32mThen I click > on the bottom,preview[90m # features/step_definitions/guest_smoky.rb:394[0m[0m
+    [32mThen I click < on the bottom,preview[90m # features/step_definitions/guest_smoky.rb:397[0m[0m
+    [32mThen I click map view[90m                # features/step_definitions/guest_smoky.rb:400[0m[0m
+    [32mThen I close map view[90m                # features/step_definitions/guest_smoky.rb:403[0m[0m
+    [32mThen I click full screen photo[90m       # features/step_definitions/guest_smoky.rb:406[0m[0m
+    [32mAnd I should see Lightbox[90m            # features/step_definitions/guest_smoky.rb:409[0m[0m
+
+1 scenario ([32m1 passed[0m)
+12 steps ([32m12 passed[0m)
+0m8.928s

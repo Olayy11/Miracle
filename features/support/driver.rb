@@ -10,6 +10,7 @@ end
 Capybara.default_driver=:chrome
 #Capybara.default_driver=:webkit
 
+Capybara.current_driver = :rack_test_json
 
 Capybara.default_max_wait_time = 10
 Capybara.javascript_driver = :webkit
@@ -39,6 +40,7 @@ After do |scenario|
     picture
   end
 end
+
 
 #def response_headers
 #raise Capybara::NotSupportedByDriverError, 'Capybara::Driver::Base#response_headers'
