@@ -14,8 +14,8 @@ include VarHelper
 
 And (/^I logged$/) do
   find('div.Header-actionWrapper').find('a.Header-actionName:nth-child(1)').click
-  fill_in 'email', :with => '8@gmail.com'
-  fill_in 'password', :with => 'qwertyQ1'
+  fill_in 'email', :with => 'nunuveko@sfamo.com'
+  fill_in 'password', :with => '12345678'
   click_button 'Sign'
   Capybara.default_max_wait_time
 end
@@ -63,7 +63,6 @@ end
 
 Then(/^I click any result$/) do
   results_address=page.all(address).count
-  # print results_address
   page.all('.SearchResults-category:nth-child(2) .SearchResults-item  a')[rand(results_address)].click #select random address and click it
   end
 
@@ -124,7 +123,6 @@ end
 
 And (/^Price of clicked Sales item and recently viewed are identical$/)do
   expect(page).to have_css(".Title--secondary", :text=>@titleprice)
-  #puts @titleprice
 end
 
 

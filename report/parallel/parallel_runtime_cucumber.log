@@ -5,18 +5,14 @@ Feature: Smoky
     [32mGiven I am on [32m[1mOuteast[0m[0m[32m[90m # features/step_definitions/user_steps.rb:5[0m[0m
     [32mAnd I am guest[90m        # features/step_definitions/guest_smoky.rb:5[0m[0m
 
-  Scenario: Slider/HDP[90m                   # /Users/ova/RubymineProjects/Miracle/features/guest_smoky.feature:183[0m
-    [32mWhen I go to Sales page[90m              # features/step_definitions/guest_smoky.rb:219[0m[0m
-    [32mThen I click any listing[90m             # features/step_definitions/guest_smoky.rb:313[0m[0m
-    [32mThen I click > on main photo[90m         # features/step_definitions/guest_smoky.rb:391[0m[0m
-    [32mThen I click < on main photo[90m         # features/step_definitions/guest_smoky.rb:388[0m[0m
-    [32mThen I click > on the bottom,preview[90m # features/step_definitions/guest_smoky.rb:394[0m[0m
-    [32mThen I click < on the bottom,preview[90m # features/step_definitions/guest_smoky.rb:397[0m[0m
-    [32mThen I click map view[90m                # features/step_definitions/guest_smoky.rb:400[0m[0m
-    [32mThen I close map view[90m                # features/step_definitions/guest_smoky.rb:403[0m[0m
-    [32mThen I click full screen photo[90m       # features/step_definitions/guest_smoky.rb:406[0m[0m
-    [32mAnd I should see Lightbox[90m            # features/step_definitions/guest_smoky.rb:409[0m[0m
+  Scenario: Stories from main page[90m                                          # /Users/ova/RubymineProjects/Miracle/features/guest_smoky.feature:56[0m
+    [32mWhen I see [32m[1m3[0m[0m[32m stories cards[90m                                              # features/step_definitions/guest_smoky.rb:144[0m[0m
+    [32mThen I click "[32m[1mVIEW MORE STORIES[0m[0m[32m" and I see NEW TAB with url "[32m[1m/stories/[0m[0m[32m"[90m # features/step_definitions/guest_smoky.rb:149[0m[0m
+      [36mhttps://staging.outeast.com/stories/[0m
+    [32mThen I click on 1 of 3 stories[90m                                          # features/step_definitions/guest_smoky.rb:176[0m[0m
+    [32mAnd I should see page with this clicked stories[90m                         # features/step_definitions/guest_smoky.rb:182[0m[0m
+      [36mhttps://staging.outeast.com/stories/the-8-best-places-to-eat-and-drink-in-southampton/[0m
 
 1 scenario ([32m1 passed[0m)
-12 steps ([32m12 passed[0m)
-0m8.928s
+6 steps ([32m6 passed[0m)
+0m11.290s

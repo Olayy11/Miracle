@@ -6,6 +6,10 @@ And (/^I am guest$/) do
  expect(page).to have_css(".Header-actionWrapper", text: 'Sign In')
 end
 
+When /^I on main page$/ do
+  visit "/"
+end
+
 When (/^I see Sales is active$/) do
  expect(page).to have_css(".CompactSearchBar-link.isActive", text: 'Sales')
 end
@@ -13,13 +17,14 @@ end
 Then (/^I select town "(.*?)"$/) do |town|
   find(".Multiselect-locations").click
   find(".Multiselect-options .Checkbox", :text => town).click
+  sleep 0.3
 end
 
-Then (/^I select min price "(.*?)" and max price "(.*?)"$/) do |min_price, max_price|
- find(".CompactSearchBar-input--price").click
- find('.PriceInput-field:nth-child(2) .TextField').send_keys :backspace, :backspace, :backspace, :backspace, :backspace, :backspace
- fill_in "priceFrom", with:min_price
- fill_in "priceTo", with:max_price
+Then("I select min price {int} and max price {int}") do |min_price, max_price|
+  find(".CompactSearchBar-input--price").click
+  7.times{find('.PriceInput-field:nth-child(2) .TextField').send_keys :backspace}
+  fill_in "priceFrom", with:min_price
+  fill_in "priceTo", with:max_price
 end
 
 #Then /^I select beds "(.*?)"$/ do |beds| if wanna use type data
@@ -33,13 +38,18 @@ Then /^I click SEE HOMES$/ do
   click_button ("SEE HOMES")
 end
 
+Then /^I click 'All Guides'/ do
+  find(".Button.Button--secondary", :text => "VIEW ALL GUIDES").click
+end
+
+
 And (/^I should see all listings with "(.*?)" town - SEARCHBAR, TITLE,LISTINGS$/) do |towns|
   expect(page).to have_css(".ListingGroup-headingBlock", text: towns)
   expect(page).to have_css(".SearchBar-section--towns", text: towns)
   expect(page).to have_css(".CardDesktop-region", text: towns.upcase)
 end
 
-And (/^I should see all listings price between selected price min "(.*?)" and max "(.*?)"$/) do |min, max|
+And ("I should see all listings price between selected price min {int} and max {int}") do |min, max|
    check_betweenprice(min,max)
 end
 
@@ -81,14 +91,9 @@ And (/^I should see selected dates "(.*?)"$/) do |dates|
   check_shot_dates (dates)
 end
 
-When /^I see Listings Youll Love$/ do
-  cards=page.all(".SecondaryPromoCard").count
-  if cards == 4
-    true
-  else
-    false
-  end
-  expect(true).to be true
+When ("I see {int} Listings Youll Love") do |number|
+  selector = ".SecondaryPromoCard"
+  number_cards(selector, number)
 end
 
 Then /^I click one of listings "You’ll Love"$/ do
@@ -97,7 +102,7 @@ Then /^I click one of listings "You’ll Love"$/ do
 end
 
 And /^I should see page with listings$/ do
-  puts page.current_url
+ # puts page.current_url
   expect(page).to have_css(".SearchBar")
   expect(page).to have_css(".Srp-section")
 end
@@ -119,13 +124,11 @@ Then /^I click VIEW ALL$/ do
 end
 
 And /^I should see page All Hamptons Real Estate and sort by NEW$/ do
- curr_page ("https://staging.outeast.com/for-sale/order/newest")
+ curr_page ("/for-sale/order/newest")
 end
 When /^I see "Trending Properties" block$/ do
   expect(page).to have_css(".Home-sectionCloud", :text => "Trending Properties")
 end
-#expected.page('.CompactSearchBar-link.CompactSearchBar-link--sales.isActive').isVisiable
-#
 
 Then /^I click on < button for PROPERTTIES$/ do
   5.times {page.all(prev_button)[1].click}
@@ -134,57 +137,97 @@ Then /^I click on > button for PROPERTTIES$/ do
   5.times { page.all(next_button)[1].click }
 end
 
-When /^I see 4 Guides$/ do
-  cards=page.all(".GuideCards .ImpressionCard-blocks").count
-  if cards == 4
-    true
-  else
-    false
-  end
-  expect(true).to be true
+When ("I see {int} guides cards") do |number|
+ selector=".GuideCards .ImpressionCard-blocks"
+ number_cards(selector, number)
+end
+When ("I see {int} stories cards") do |number|
+   selector=".SimpleSlider-container .ImpressionCard-blocks"
+   number_cards(selector, number)
 end
 
-Then /^I click View all guides$/ do
-    find(".Home-sectionViewAllButton", :text => "VIEW ALL GUIDES").click
-  puts page.current_url
+Then (/^I click "(.*?)" and I see NEW TAB with url "(.*?)"$/) do |button_name, url|
+  new_window = window_opened_by {custom_click_button(button_name)}
+    within_window new_window do
+      curr_page (url)
+      puts page.current_url
+      page.execute_script('window.close()') # close new page
+      switch_to_window(windows.first)
+      end
 end
+Then /^I click on 1 of 4 Local Guides$/ do
+  guides= page.all(".GuideCards-card").count
+  random_guide= page.all(".GuideCards-card")[rand(guides)]
+  random_guide.click
+  @title_guide = random_guide.text #for next step
+end
+
+And /^I should see page with this clicked guides$/ do
+   new_window = windows.last
+   within_window new_window do
+   puts page.current_url
+      array_words= @title_guide.split(/[^[[:word:]]]+/)
+      # puts array_words[0] first word
+      expect(page).to have_css(".guide-hero__title", :text =>array_words[0]) # title has first word from cards desc
+   page.execute_script('window.close()') # close new page
+   switch_to_window(windows.first)
+   end
+end
+Then /^I click on 1 of 3 stories$/ do
+  stories= page.all(".SimpleSlider-container .ImpressionCard-blocks").count
+  random_storie= page.all(".SimpleSlider-container .ImpressionCard-blocks")[rand(stories)]
+  random_storie.click
+  @title_stories = random_storie.text #for next step
+end
+And /^I should see page with this clicked stories$/ do
+  new_window = windows.last
+  within_window new_window do
+    puts page.current_url
+    array_words= @title_stories.split(/[^[[:word:]]]+/)
+    # puts array_words[0] first word
+    expect(page).to have_css(".story-header__title", :text =>array_words[0]) # title has first word from cards desc
+    page.execute_script('window.close()') # close new page
+    switch_to_window(windows.first)
+  end
+
+end
+
 
 Then /^I click SALES of footer$/ do
  footer_items("SALES")
 end
 And /^I should see SALES pages$/ do
-   curr_page ("https://staging.outeast.com/for-sale")
+   curr_page ("/for-sale")
 end
 Then /I click RENTALS of footer$/ do
   footer_items("RENTALS")
 end
 And /^I should see RENTALS pages$/ do
-  curr_page ("https://staging.outeast.com/for-rent")
+  curr_page ("/for-rent")
 end
 Then /^I click LAND$/ do
  footer_items("LAND")
 end
 And /^I should see LAND pages$/ do
-  curr_page ("https://staging.outeast.com/for-sale/land")
+  curr_page ("/for-sale/land")
 end
-# Then /^I click STORIES$/ do
-#
-# end
-# And /^I should see STORIES pages$/ do
-#
-# end
+Then /^I click STORIES$/ do
+  footer_items("STORIES")
+end
+And /^I should see STORIES pages$/ do
+  curr_page ("/stories")
+end
 Then /^I click OPEN HOUSES$/ do
   footer_items("OPEN HOUSES")
 end
 And /^I should see OPEN HOUSES pages and listings with labels$/ do
-  curr_page ("https://staging.outeast.com/for-sale/bridgehampton/open-house/true")
-  expect(page).to have_css(".OpenHouseCard-item")
+  curr_page ("/for-sale/open-house/true")
 end
 Then /^I click CAREERS$/ do
   footer_items("CAREERS")
 end
 And /^I should see CAREERS pages$/ do
-  curr_page ("https://streeteasy.com/jobs")
+  another_page ("https://streeteasy.com/jobs")
 end
 
 And /^I should see PRESS with mailto$/ do
@@ -201,19 +244,19 @@ Then /^I click icon Instagram$/ do
   page.all(".Footer-socialLink")[0].click
 end
 And /^I should see Instagram pages$/ do
-  curr_page ("https://www.instagram.com/headouteast/")
+  another_page ("https://www.instagram.com/headouteast/")
 end
 Then /^I click icon FB$/ do
   page.all(".Footer-socialLink")[1].click
 end
 And /^I should see FB pages$/ do
-  curr_page ("https://www.facebook.com/headouteast")
+  another_page ("https://www.facebook.com/headouteast")
 end
 Then /^I click icon Twitter$/ do
   page.all(".Footer-socialLink")[2].click
 end
 And /^I should see Twitter pages$/ do
-  curr_page ("https://twitter.com/outeast")
+  another_page ("https://twitter.com/outeast")
 end
 
 When (/^I go to Sales page$/) do
@@ -222,8 +265,7 @@ end
 
 Then /^I click SEE RESULTS$/ do
   find(".SearchBarFooterActions-action", :text => "SEE RESULTS").click
-  puts page.current_url
-end
+ end
 
 Then /^I click ADVANCED FILTERS$/ do
   find(".AdvancedFilter", :text=>"ADVANCED FILTERS" ).click
@@ -236,17 +278,18 @@ end
 And /^I should see that SALES is active$/ do
   expect(page).to have_selector(:css, ".AdvancedFilter-modalHeader-link.isActive")
 end
+
 # FILTER MODAL
 Then (/^I select bedrooms "(.*?)"$/) do |bedrooms|
-find(".Label.Label--inline", :text => "Bedrooms").(".Button--iconPlus").click
+  find(".Label.Label--inline", :text => "Bedrooms").(".Button--iconPlus").click
 end
 Then (/^I select town "(.*?)" in modal$/) do |town|
   find(".ListingForm-anchor .Multiselect-locations").click
   find(".Multiselect-options .Checkbox", :text => town).click
 end
 
-Then (/^I select min price "(.*?)" and max price "(.*?)" in modal$/) do |min_price, max_price|
-   find('.PriceInput-field:nth-child(2) .TextField').send_keys :backspace, :backspace, :backspace, :backspace, :backspace, :backspace, :backspace
+Then ("I select min price {int} and max price {int} in modal") do |min_price, max_price|
+  8.times{find('.PriceInput-field:nth-child(2) .TextField').send_keys :backspace}
   fill_in "priceFrom", with:min_price
   fill_in "priceTo", with:max_price
 end
@@ -259,8 +302,8 @@ Then (/^I select bathrooms "(.*?)" in modal$/) do |bathrooms|
   bath.times { find(".ListingForm-input[data-qa-advanced-baths-input] .Button--iconPlus").click}
 end
 Then (/^I select acreage "(.*?)"$/) do |acreage|
-  acr=Integer(acreage)-10
-  acr.times {find(".ListingForm-input[data-qa-advanced-acr-input] .Button--iconPlus").click}
+  numb= 10-Integer(acreage)
+  numb.times {find(".ListingForm-input[data-qa-advanced-acr-input] .Button--iconMinus").click}
 end
 Then (/^I select Estimated Sq. Ft. "1500"$/) do
   2.times {find(".ListingForm-input[data-qa-advanced-sqft-input] .Button--iconPlus").click}
@@ -274,8 +317,8 @@ Then (/^I select view "(.*?)"$/) do |view|
   3.times {find(".CheckySelect-optionText", :text => view).click}
   find(".ListingForm-input[data-qa-advanced-view-checkbox]").click
  end
-Then (/^I select amenities "(.*?)"$/) do |amenities|
-  find(".ListingForm-input--checkbox", :text => amenities).click
+Then (/^I select and unselect amenities "(.*?)"$/) do |amenities|
+  2.times {find(".ListingForm-input--checkbox", :text => amenities).click}
 end
 Then /^I click SEE RESULTS in modal$/ do
   find(".AdvancedFilter-modalFooter-button", :text => "SEE RESULTS").click
@@ -409,3 +452,54 @@ end
 And /^I should see Lightbox$/ do
   expect(page).to have_css(".LightBox")
 end
+
+#lightbox
+Then /^I click lightbox Save$/ do
+  find("a.Button--iconHeartWhite", :text => "SAVE").click
+end
+Then /^I click lightbox SHARE$/ do
+  find(".Button--iconShareWhite").click
+end
+Then /^I click lightbox CONTACT AGENT$/ do
+  find(".LightBox-button").click
+end
+Then /^I click on preview$/ do
+  page.all(".Carousel-image")[0].click
+end
+
+Then /^I click on map$/ do
+  find(".MapButton.MapButton--lightBox").click
+end
+
+And /^I should see MapView$/ do
+  expect(page).to have_css(".MapView.MapView--lightBox")
+end
+
+#Authorized
+And /^I should see SAVED search$/ do
+  expect(page).to have_css(".SearchBar .Button--primary", :text => "SAVED")
+  sleep 0.3
+end
+
+Then /^I click SAVED$/ do
+  find(".SearchBar .Button--primary", :text => "SAVED").click
+end
+And  /^I should see SAVE search$/ do
+  expect(page).to have_css(".SearchBar .Button--primary", :text => "SAVE SEARCH")
+  sleep 0.3
+end
+
+Then /^I should see saved listing$/ do
+  expect(page).to have_css(".Button--saveLink[data-save-listing-button]:nth-child(1)", :text => "SAVED")
+
+end
+Then /^I click Saved listing$/ do
+  page.all(".Button--saveLink[data-save-listing-button]")[1].click
+end
+
+And  /^I should see save listing$/ do
+  expect(page).to have_css(".Button--saveLink[data-save-listing-button]:nth-child(1)", :text => "SAVE")
+end
+
+
+#expected.page('.CompactSearchBar-link.CompactSearchBar-link--sales.isActive').isVisiable
