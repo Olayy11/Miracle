@@ -3,16 +3,14 @@ Feature: Smoky
 
   Background: [90m            # /Users/ova/RubymineProjects/Miracle/features/guest_smoky.feature:2[0m
     [32mGiven I am on [32m[1mOuteast[0m[0m[32m[90m # features/step_definitions/user_steps.rb:5[0m[0m
-    [32mAnd I am guest[90m        # features/step_definitions/guest_smoky.rb:5[0m[0m
+    [32mAnd I am guest[90m        # features/step_definitions/guest_smoky.rb:7[0m[0m
 
-  Scenario: Stories from main page[90m                                          # /Users/ova/RubymineProjects/Miracle/features/guest_smoky.feature:56[0m
-    [32mWhen I see [32m[1m3[0m[0m[32m stories cards[90m                                              # features/step_definitions/guest_smoky.rb:144[0m[0m
-    [32mThen I click "[32m[1mVIEW MORE STORIES[0m[0m[32m" and I see NEW TAB with url "[32m[1m/stories/[0m[0m[32m"[90m # features/step_definitions/guest_smoky.rb:149[0m[0m
-      [36mhttps://staging.outeast.com/stories/[0m
-    [32mThen I click on 1 of 3 stories[90m                                          # features/step_definitions/guest_smoky.rb:176[0m[0m
-    [32mAnd I should see page with this clicked stories[90m                         # features/step_definitions/guest_smoky.rb:182[0m[0m
-      [36mhttps://staging.outeast.com/stories/the-8-best-places-to-eat-and-drink-in-southampton/[0m
+  Scenario: Agent page save listing[90m                   # /Users/ova/RubymineProjects/Miracle/features/guest_smoky.feature:281[0m
+    [32mWhen I'm on Agent page[90m                            # features/step_definitions/guest_smoky.rb:524[0m[0m
+    [32mThen I logged[90m                                     # features/step_definitions/steps_header_search.rb:15[0m[0m
+    [32mThen I click "[32m[1mSAVE[0m[0m[32m" listing, I should see "[32m[1mSAVED[0m[0m[32m"[90m # features/step_definitions/guest_smoky.rb:579[0m[0m
+    [32mThen I click "[32m[1mSAVED[0m[0m[32m" listing, I should see "[32m[1mSAVE[0m[0m[32m"[90m # features/step_definitions/guest_smoky.rb:579[0m[0m
 
 1 scenario ([32m1 passed[0m)
 6 steps ([32m6 passed[0m)
-0m11.290s
+0m18.812s

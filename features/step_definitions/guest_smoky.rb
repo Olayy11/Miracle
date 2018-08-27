@@ -1,6 +1,8 @@
 require_relative '../support/methods'
 next_button =".SimpleSlider-control.SimpleSlider-control--next"
 prev_button=".SimpleSlider-control.SimpleSlider-control--prev"
+stiky_tab=".AgentPageTabs-item"
+active_stiky_tab=".AgentPageTabs-item.isActive"
 
 And (/^I am guest$/) do
  expect(page).to have_css(".Header-actionWrapper", text: 'Sign In')
@@ -156,8 +158,8 @@ Then (/^I click "(.*?)" and I see NEW TAB with url "(.*?)"$/) do |button_name, u
       end
 end
 Then /^I click on 1 of 4 Local Guides$/ do
-  guides= page.all(".GuideCards-card").count
-  random_guide= page.all(".GuideCards-card")[rand(guides)]
+  guides= page.all(".GuideCards-card .ImpressionCard").count
+  random_guide= page.all(".GuideCards-card .ImpressionCard")[rand(guides)]
   random_guide.click
   @title_guide = random_guide.text #for next step
 end
@@ -354,7 +356,7 @@ Then /^I click Save listing$/ do
 end
 #HDP
 Then /^I click any listing$/ do
-  page.all(".CardDesktop")[3].click
+  page.all(".CardDesktop")[4].click
 end
 And /^I should see listing page$/ do
   expect(page).to have_css(".Hdp")
@@ -491,8 +493,14 @@ end
 
 Then /^I should see saved listing$/ do
   expect(page).to have_css(".Button--saveLink[data-save-listing-button]:nth-child(1)", :text => "SAVED")
-
 end
+Then /^I should see saved listing hdp$/ do
+  expect(page).to have_css(".Button.Button--save.isActive", :text => "SAVED")
+end
+Then /^I click SAVED hdp$/ do
+  find(".Button.Button--save.isActive", :text => "SAVED").click
+end
+
 Then /^I click Saved listing$/ do
   page.all(".Button--saveLink[data-save-listing-button]")[1].click
 end
@@ -501,5 +509,84 @@ And  /^I should see save listing$/ do
   expect(page).to have_css(".Button--saveLink[data-save-listing-button]:nth-child(1)", :text => "SAVE")
 end
 
+When /^I'm on HDP$/ do
+  visit "properties/sales/12921"
+end
+Then /^I click agent link$/ do
+  agent_link= page.all(".AgentBox-fullName a").count
+  page.all(".AgentBox-fullName a")[rand(agent_link)].click
+end
+Then /^I should be on agent page$/ do
+expect(page).to have_css(".AgentPage")
+end
 
-#expected.page('.CompactSearchBar-link.CompactSearchBar-link--sales.isActive').isVisiable
+#Agent page
+When /^I'm on Agent page$/ do
+  visit "/agents/1057/susan-ryan/east-hampton"
+end
+Then /^I click Show phone number$/ do
+find(".AgentProfile-contactPhoneButtonText", :text => "Show phone number").click
+end
+And /^I should see a number$/ do
+  expect(page).to have_css(".AgentProfile-contactPhonesContainer.isActive")
+end
+Then /^I click CLOSE modal$/ do
+  page.all(".Modal-close")[2].click
+end
+Then /^I click Active Sales$/ do
+  find(stiky_tab, :text => "Active Sales").click
+end
+Then /^I click Past Sales$/ do
+  find(stiky_tab, :text => "Past Sales").click
+end
+Then /^I click Past Rentals$/ do
+  find(stiky_tab, :text => "Past Rentals").click
+end
+Then /^I click Active Rentals$/ do
+  find(stiky_tab, :text => "Active Rentals").click
+end
+And /^I should see Active Sales$/ do
+  expect(page).to have_css(active_stiky_tab, :text => "Active Sales")
+end
+And /^I should see Past Sales$/ do
+  expect(page).to have_css(active_stiky_tab, :text => "Past Sales")
+end
+And /^I should see Past Rentals$/ do
+  expect(page).to have_css(active_stiky_tab, :text => "Past Rentals")
+end
+And /^I should see Active Rentals$/ do
+  expect(page).to have_css(active_stiky_tab, :text => "Active Rentals")
+end
+Then /^I scroll down$/ do
+  page.execute_script "window.scrollBy(0,3000)"
+  sleep 2
+  end
+And /^I should see stiky tab and Contact button$/ do
+expect(page).to have_css(".AgentProfile--stickedOnTop")
+expect(page).to have_css(".AgentPageTabs-agentProfileRight.isTabsSticky")
+end
+
+Then /^I click CONTACT AGENT stiky$/ do
+  find(".AgentPageTabs-agentProfileRight.isTabsSticky", :text => "CONTACT AGENT").click
+end
+Then /^I click on any listing$/ do
+cards=page.all(".ListingGroup-cards .CardDesktop").count
+page.all(".ListingGroup-cards .CardDesktop")[rand(cards)].click
+end
+And /^I should see HDP$/ do
+  expect(page).to have_css(".Hdp")
+end
+Then (/^I click "(.*?)" listing, I should see "(.*?)"$/) do |action, result|
+  random_listing=page.all(".CardDesktop-action", :exact_text =>action).count
+  #puts random_listing
+  listing = page.all(".CardDesktop-action", :exact_text =>action)[rand(random_listing)]
+  listing.click
+  sleep 2
+  #puts listing.text
+  if listing.text == result
+    res=true
+  else
+    res=false
+  end
+  expect(res).to be true
+  end

@@ -232,3 +232,54 @@ Feature: Smoky
     Then I click on map
     And I should see MapView
 
+  Scenario: Save/HDP
+    When I go to Sales page
+    Then I click any listing
+    Then I logged
+    Then I click Save
+    And I should see saved listing hdp
+    Then I click SAVED hdp
+    And I should see save listing
+
+  Scenario: To Agent page
+    When I'm on HDP
+    Then I click agent link
+    Then I should be on agent page
+
+  Scenario: Agent page actions
+    When I'm on Agent page
+    Then I click CONTACT AGENT
+    And I should see contact form
+    Then I click CLOSE modal
+    Then I click Show phone number
+    And I should see a number
+    Then I scroll down
+    And I should see stiky tab and Contact button
+    Then I click CONTACT AGENT stiky
+    And I should see contact form
+    Then I click CLOSE modal
+
+
+  Scenario: Agent page TABS
+    When I'm on Agent page
+    Then I click Active Sales
+    And I should see Active Sales
+    Then I click Past Sales
+    And I should see Past Sales
+    Then I click Past Rentals
+    And I should see Past Rentals
+    Then I click Active Rentals
+    And I should see Active Rentals
+
+  Scenario: Agent page click listing
+    When I'm on Agent page
+    Then I logged
+    Then I click on any listing
+    And I should see HDP
+    Then I go back
+
+  Scenario: Agent page save listing
+    When I'm on Agent page
+    Then I logged
+    Then I click "SAVE" listing, I should see "SAVED"
+    Then I click "SAVED" listing, I should see "SAVE"
