@@ -6,20 +6,6 @@ Given /^I am on (.+)$/ do |url|
   visit '/';
 end
 
-
-
-=begin
-Given /^I am logged on (.+)$/ do |url|
-  visit '/'
-  find('div.Header-actionWrapper').find('a.Header-actionName:nth-child(1)').click
-  email = FFaker::Internet.email
-  fill_in 'email', with: email  #=> "kirsten.greenholt@corkeryfisher.info"
-  fill_in 'password', :with => password
-  click_button 'Sign'
-  Capybara.default_max_wait_time
-end
-=end
-
 #common part for login steps
 When /^I click on 'Sign in'$/  do
   find('div.Header-actionWrapper').find('a.Header-actionName:nth-child(1)').click
@@ -62,11 +48,9 @@ When /^I see message about empty password$/ do
   expect(page).to have_css(modal, text: 'Please enter a password')
   end
 
-
 When /^I see message about not registered data$/ do
   expect(page).to have_css(modal, text: 'Invalid email or password')
 end
-
 
 When /^I click on 'Sign up'$/  do
   find('div.Header-actionWrapper').find('a.Header-actionName:nth-child(2)').click

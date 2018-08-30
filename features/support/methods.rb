@@ -15,7 +15,7 @@ def check_beds (beds)
   expect(page).to have_css(".SearchBar", text: beds)
   errors = 0
   page.all(bed).each do |bed_number|
-    if Integer(bed_number.text) < Integer(beds)
+    if bed_number.text.gsub(/\D/,'').to_i < beds
       errors+=1
     end
   end
@@ -52,7 +52,6 @@ def check_shot_dates (dates)
 end
 
 def curr_page (url_need)
- # expect(page.current_url)
  arg = Capybara.app_host + url_need
   if page.current_url != arg
     result = false
@@ -63,7 +62,6 @@ def curr_page (url_need)
 end
 
 def another_page (url_need)
-  # expect(page.current_url)
   arg = url_need
   if page.current_url != arg
     result = false
@@ -88,15 +86,15 @@ def footer_items(item)
 find(".Footer-quickLink", :text => item).click
 end
 
-def new_tab (clicki, tab_url)
-  new_window = window_opened_by {find(".Button.Button--secondary", :text => "VIEW ALL GUIDES").click}
-  within_window new_window do
-    curr_page ("/guides/")
-    puts page.current_url
-    page.execute_script('window.close()') # close new page
-    switch_to_window(windows.first)
-  end
-end
+# def new_tab (clicki, tab_url)
+#   new_window = window_opened_by {find(".Button.Button--secondary", :text => "VIEW ALL GUIDES").click}
+#   within_window new_window do
+#     curr_page ("/guides/")
+#     puts page.current_url
+#     page.execute_script('window.close()') # close new page
+#     switch_to_window(windows.first)
+#   end
+# end
 
 def custom_click_button (text)
   case text
@@ -108,7 +106,21 @@ def custom_click_button (text)
     puts 'd'
    end
 end
+def custom_expect (text)
+  case text
+  when "SAVED preview"
+    expect(page).to have_css(".CardPreview .Button.Button--saveLink.isActive")
+  when "SAVE preview"
+    expect(page).to have_css(".CardPreview .Button.Button--saveLink")
+   else
+    puts 'd'
+  end
+end
 
+def click_any_listing(selector)
+  counter= page.all(selector).count
+  page.all(selector)[rand(counter)].click
+end
 
 #+++++
 # Scenario: Guides from main page TEST VERSION

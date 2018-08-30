@@ -12,12 +12,14 @@ in_title = '.SearchResults-category:nth-child(4) >.SearchResults-title'
 require_relative 'helper'
 include VarHelper
 
+
+
 And (/^I logged$/) do
   find('div.Header-actionWrapper').find('a.Header-actionName:nth-child(1)').click
   fill_in 'email', :with => 'nunuveko@sfamo.com'
   fill_in 'password', :with => '12345678'
   click_button 'Sign'
-  Capybara.default_max_wait_time
+  sleep 7
 end
 
 When /^I click on 'Search'$/  do
@@ -26,6 +28,7 @@ end
 
 When /^I start writing "(.*?)"$/ do |searchText|
   find(".ExpandedHeaderSearch-editable").set searchText
+  sleep 5
 end
 
 Then(/^I should see all results with "(.*?)"$/) do |expectedText|
@@ -111,8 +114,8 @@ Then (/^I should see sales page$/) do
 end
 
 Then (/^I see recently viewed$/) do
-@titleprice=find(".Card-priceNumber").text
-find('.Card.Card--withoutBorder a').click
+@titleprice=page.all(".Card-priceNumber")[0].text
+page.all('.Card.Card--withoutBorder a')[0].click
 end
 
 When (/^I click Sales item$/)do

@@ -11,7 +11,7 @@ Feature: Smoky
      Then I click SEE HOMES
      And I should see all listings with "Bridgehampton" town - SEARCHBAR, TITLE,LISTINGS
      And I should see all listings price between selected price min 2000000 and max 40000000
-     And I should see all listings from selected beds "2"
+     And I should see all listings from selected beds 2
      Then I click next page if there is pagination
      And I should see next page
 
@@ -27,7 +27,7 @@ Feature: Smoky
     And I should see all listings with "Bridgehampton" town - SEARCHBAR, TITLE,LISTINGS
     And I should see all listings price between selected price min 200000 and max 40000000
     And I should see selected dates "June"
-    And I should see all listings from selected beds "2"
+    And I should see all listings from selected beds 2
 
   Scenario: Listings Youll Love is shown
     When I see 4 Listings Youll Love
@@ -101,9 +101,9 @@ Feature: Smoky
     And I should see that SALES is active
     Then I select town "Bridgehampton" in modal
     Then I select min price 200000 and max price 4000000 in modal
-    Then I select bedrooms "3" in modal
-    Then I select bathrooms "3" in modal
-    Then I select acreage "1"
+    Then I select bedrooms 3 in modal
+    Then I select bathrooms 3 in modal
+    Then I select acreage 1
     Then I select Estimated Sq. Ft. "1500"
     Then I select listing status "For Sale"
     Then I select view "Waterview"
@@ -111,7 +111,7 @@ Feature: Smoky
     Then I click SEE RESULTS in modal
     And I should see all listings with "Bridgehampton" town - SEARCHBAR, TITLE,LISTINGS
     And I should see all listings price between selected price min 200000 and max 40000000
-    And I should see all listings from selected beds "3"
+    And I should see all listings from selected beds 3
     And I should see all listings from selected baths "3"
 
   Scenario: RENTALS - ADVANCED FILTERS
@@ -122,9 +122,9 @@ Feature: Smoky
     Then I select town "Amagansett" in modal
     Then I select Rental Period "June" in modal
     Then I select min price 200000 and max price 4000000 in modal
-    Then I select bedrooms "3" in modal
-    Then I select bathrooms "3" in modal
-    Then I select acreage "2"
+    Then I select bedrooms 3 in modal
+    Then I select bathrooms 3 in modal
+    Then I select acreage 2
     Then I select Estimated Sq. Ft. "1500"
     Then I select listing status "Active"
     Then I select view "Waterview"
@@ -137,32 +137,14 @@ Feature: Smoky
   Then I click Save Search
   And  I should see Registration form
 
-  Scenario: Save Search, logged
-    Then I go to Rentals page
-    Then I logged
-    Then I select town "Bridgehampton"
-    Then I click SEE RESULTS
-    Then I click Save Search
-    And  I should see SAVED search
-    Then I click SAVED
-    And  I should see SAVE search
-
   Scenario: Save listing
     When I go to Rentals page
     Then I click Save listing
     And  I should see Registration form
 
-  Scenario: Save listing, logged
-    When I go to Rentals page
-    Then I logged
-    Then I click Save listing
-    And  I should see saved listing
-    Then I click Saved listing
-    And  I should see save listing
-
   Scenario: Actions from HDP
    When I go to Sales page
-   Then I click any listing
+   Then I click listing
    And I should see listing page
    Then I click Save
    And I should see Registration form
@@ -177,7 +159,7 @@ Feature: Smoky
 
   Scenario: Contact agent/HDP
     When I go to Sales page
-    Then I click any listing
+    Then I click listing
     Then I click CONTACT AGENT
     Then I fill name
     Then I fill email
@@ -188,7 +170,7 @@ Feature: Smoky
 
   Scenario: Share listing/HDP
     When I go to Sales page
-    Then I click any listing
+    Then I click listing
     Then I click SHARE
     Then I fill email
     Then I fill share with
@@ -197,7 +179,7 @@ Feature: Smoky
 
   Scenario: Slider/HDP
     When I go to Sales page
-    Then I click any listing
+    Then I click listing
     Then I click > on main photo
     Then I click < on main photo
     Then I click > on the bottom,preview
@@ -209,7 +191,7 @@ Feature: Smoky
 
   Scenario: Lightbox/HDP
     When I go to Sales page
-    Then I click any listing
+    Then I click listing
     Then I click full screen photo
     Then I click lightbox Save
     And I should see Registration form
@@ -232,17 +214,8 @@ Feature: Smoky
     Then I click on map
     And I should see MapView
 
-  Scenario: Save/HDP
-    When I go to Sales page
-    Then I click any listing
-    Then I logged
-    Then I click Save
-    And I should see saved listing hdp
-    Then I click SAVED hdp
-    And I should see save listing
-
   Scenario: To Agent page
-    When I'm on HDP
+    When I go to HDP
     Then I click agent link
     Then I should be on agent page
 
@@ -254,11 +227,10 @@ Feature: Smoky
     Then I click Show phone number
     And I should see a number
     Then I scroll down
-    And I should see stiky tab and Contact button
-    Then I click CONTACT AGENT stiky
+    And I should see stiсky tab and Contact button
+    Then I click CONTACT AGENT stiсky
     And I should see contact form
     Then I click CLOSE modal
-
 
   Scenario: Agent page TABS
     When I'm on Agent page
@@ -271,15 +243,4 @@ Feature: Smoky
     Then I click Active Rentals
     And I should see Active Rentals
 
-  Scenario: Agent page click listing
-    When I'm on Agent page
-    Then I logged
-    Then I click on any listing
-    And I should see HDP
-    Then I go back
 
-  Scenario: Agent page save listing
-    When I'm on Agent page
-    Then I logged
-    Then I click "SAVE" listing, I should see "SAVED"
-    Then I click "SAVED" listing, I should see "SAVE"

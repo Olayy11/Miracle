@@ -8,6 +8,15 @@ And (/^I am guest$/) do
  expect(page).to have_css(".Header-actionWrapper", text: 'Sign In')
 end
 
+And (/^I am registered$/) do
+  find('div.Header-actionWrapper').find('a.Header-actionName:nth-child(2)').click
+  email = FFaker::Internet.email
+  fill_in 'email', with: email
+  fill_in 'password', :with => "12345678"
+  click_button 'Sign'
+end
+
+
 When /^I on main page$/ do
   visit "/"
 end
@@ -55,7 +64,7 @@ And ("I should see all listings price between selected price min {int} and max {
    check_betweenprice(min,max)
 end
 
-And (/^I should see all listings from selected beds "(.*?)"$/) do |beds|
+And ("I should see all listings from selected beds {int}") do |beds|
    check_beds (beds)
 end
 
@@ -237,6 +246,7 @@ And /^I should see PRESS with mailto$/ do
 end
 Then /^I go back$/ do
   page.go_back
+  sleep 2
 end
 Then /^I back to main page$/ do
   find(".Header-logoContainer").click
@@ -295,16 +305,16 @@ Then ("I select min price {int} and max price {int} in modal") do |min_price, ma
   fill_in "priceFrom", with:min_price
   fill_in "priceTo", with:max_price
 end
-Then /^I select bedrooms "(.*?)" in modal$/ do  |bedrooms|
-  beds=Integer(bedrooms)-1
+Then ("I select bedrooms {int} in modal") do  |bedrooms|
+  beds=bedrooms-1
   beds.times {find(".ListingForm-input[data-qa-advanced-beds-input] .Button--iconPlus").click}
   end
-Then (/^I select bathrooms "(.*?)" in modal$/) do |bathrooms|
-  bath=Integer(bathrooms)-1
+Then ("I select bathrooms {int} in modal") do |bathrooms|
+  bath=bathrooms-1
   bath.times { find(".ListingForm-input[data-qa-advanced-baths-input] .Button--iconPlus").click}
 end
-Then (/^I select acreage "(.*?)"$/) do |acreage|
-  numb= 10-Integer(acreage)
+Then ("I select acreage {int}") do |acreage|
+  numb= 10-acreage
   numb.times {find(".ListingForm-input[data-qa-advanced-acr-input] .Button--iconMinus").click}
 end
 Then (/^I select Estimated Sq. Ft. "1500"$/) do
@@ -351,12 +361,12 @@ And  /^I should see Registration form$/ do
 
 end
 
-Then /^I click Save listing$/ do
-  page.all(".Button--saveLink[data-save-listing-button]")[1].click
-end
+ Then /^I click Save listing$/ do
+   page.all(".Button--saveLink[data-save-listing-button]")[1].click
+ end
 #HDP
-Then /^I click any listing$/ do
-  page.all(".CardDesktop")[4].click
+Then /^I click listing$/ do
+  click_any_listing(".CardDesktop")
 end
 And /^I should see listing page$/ do
   expect(page).to have_css(".Hdp")
@@ -491,9 +501,6 @@ And  /^I should see SAVE search$/ do
   sleep 0.3
 end
 
-Then /^I should see saved listing$/ do
-  expect(page).to have_css(".Button--saveLink[data-save-listing-button]:nth-child(1)", :text => "SAVED")
-end
 Then /^I should see saved listing hdp$/ do
   expect(page).to have_css(".Button.Button--save.isActive", :text => "SAVED")
 end
@@ -501,15 +508,11 @@ Then /^I click SAVED hdp$/ do
   find(".Button.Button--save.isActive", :text => "SAVED").click
 end
 
-Then /^I click Saved listing$/ do
-  page.all(".Button--saveLink[data-save-listing-button]")[1].click
-end
-
 And  /^I should see save listing$/ do
-  expect(page).to have_css(".Button--saveLink[data-save-listing-button]:nth-child(1)", :text => "SAVE")
-end
+   expect(page).to have_css(".Button--saveLink[data-save-listing-button]:nth-child(1)", :text => "SAVE")
+ end
 
-When /^I'm on HDP$/ do
+When /^I go to HDP$/ do
   visit "properties/sales/12921"
 end
 Then /^I click agent link$/ do
@@ -561,17 +564,18 @@ Then /^I scroll down$/ do
   page.execute_script "window.scrollBy(0,3000)"
   sleep 2
   end
-And /^I should see stiky tab and Contact button$/ do
+And /^I should see stiсky tab and Contact button$/ do
 expect(page).to have_css(".AgentProfile--stickedOnTop")
 expect(page).to have_css(".AgentPageTabs-agentProfileRight.isTabsSticky")
 end
 
-Then /^I click CONTACT AGENT stiky$/ do
+Then /^I click CONTACT AGENT stiсky$/ do
   find(".AgentPageTabs-agentProfileRight.isTabsSticky", :text => "CONTACT AGENT").click
 end
-Then /^I click on any listing$/ do
-cards=page.all(".ListingGroup-cards .CardDesktop").count
-page.all(".ListingGroup-cards .CardDesktop")[rand(cards)].click
+Then /^I click any listing$/ do
+# cards=page.all(".ListingGroup-cards .CardDesktop").count
+# page.all(".ListingGroup-cards .CardDesktop")[rand(cards)].click
+click_any_listing(".ListingGroup-cards .CardDesktop")
 end
 And /^I should see HDP$/ do
   expect(page).to have_css(".Hdp")
@@ -589,4 +593,21 @@ Then (/^I click "(.*?)" listing, I should see "(.*?)"$/) do |action, result|
     res=false
   end
   expect(res).to be true
+  sleep 4
   end
+
+And (/^I should see "(.*?)" on the map$/) do |action|
+  custom_expect (action)
+  page.execute_script "window.scrollTo(0,0)"
+  sleep 5
+end
+
+Then (/^I click "SAVED preview" preview on the map$/) do
+  find(".CardPreview .Button.Button--saveLink.isActive").click
+end
+Then (/^I click "SAVE preview" preview on the map$/) do
+  find(".CardPreview .Button.Button--saveLink").click
+end
+Then (/^I click review on the map$/) do
+  find(".CardPreview").click
+end

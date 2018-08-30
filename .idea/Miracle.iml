@@ -69,7 +69,6 @@
     <orderEntry type="library" scope="PROVIDED" name="rails-html-sanitizer (v1.0.4, rbenv: 2.4.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="railties (v5.2.0, rbenv: 2.4.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rake (v12.3.1, rbenv: 2.4.3) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="recaptcha (v4.11.1, rbenv: 2.4.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rspec (v3.7.0, rbenv: 2.4.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rspec-core (v3.7.1, rbenv: 2.4.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rspec-expectations (v3.7.0, rbenv: 2.4.3) [gem]" level="application" />
