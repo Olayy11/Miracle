@@ -16,13 +16,13 @@ When /^I post listing$/ do
    'listors':[
       {
          'company_name':'Georgiana B. Ketcham, Lic. RE Broker',
-              'agent_id':10502,
+         'agent_id':10502,
          'last_name':'Mobius',
          'title':'',
-              'first_name':'Paul',
+         'first_name':'Paul',
          'mobile_phone':'631-553-4736',
          'email':'Paul@ketchamproperties.com',
-              'office_name':'Georgiana B. Ketcham, Lic. RE Broker',
+         'office_name':'Georgiana B. Ketcham, Lic. RE Broker',
          'office_phone':'631-749-0800',
          'office_ext':''
       }
@@ -48,7 +48,7 @@ When /^I post listing$/ do
       'listing_type':'open-listing',
       'house_style_1':'Cottage'
    },
-   'id':141938,
+   'id':141939,
    'open_houses':[
 
    ],

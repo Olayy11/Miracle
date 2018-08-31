@@ -6,7 +6,7 @@ Feature: Smoky
   Scenario: Save Search
     Then I go to Rentals page
 #    And I am registered
-    Then I select town "Amagansett"
+    Then I select town "Laurel"
     Then I click SEE RESULTS
     Then I click Save Search
     And  I should see SAVED search

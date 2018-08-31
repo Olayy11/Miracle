@@ -1,18 +1,193 @@
 Using the default profile...
-Feature: Smoky
+Feature: Header Seacrh
 
-  Background: [90m            # /Users/ova/RubymineProjects/Miracle/features/test_api.feature:2[0m
+  Background: [90m            # /Users/ova/RubymineProjects/Miracle/features/search_header.feature:2[0m
     [32mGiven I am on [32m[1mOuteast[0m[0m[32m[90m # features/step_definitions/user_steps.rb:5[0m[0m
+    [32mAnd I logged[90m          # features/step_definitions/steps_header_search.rb:17[0m[0m
 
-  Scenario: POST listing[90m # /Users/ova/RubymineProjects/Miracle/features/test_api.feature:6[0m
-    [31mWhen I post listing[90m  # features/step_definitions/apitest.rb:2[0m[0m
-[31m      undefined method `browser' for #<Capybara::HTTPClientJson::Driver:0x00007fb3768088c0> (NoMethodError)[0m
-[31m      ./features/step_definitions/apitest.rb:9:in `/^I post listing$/'[0m
-[31m      ./features/test_api.feature:7:in `When I post listing'[0m
+  Scenario: Search by 3 characters[90m           # /Users/ova/RubymineProjects/Miracle/features/search_header.feature:6[0m
+    [32mWhen I click on 'Search'[90m                 # features/step_definitions/steps_header_search.rb:25[0m[0m
+    [32mWhen I start writing "[32m[1mcal[0m[0m[32m"[90m               # features/step_definitions/steps_header_search.rb:29[0m[0m
+    [32mThen I should see all results with "[32m[1mcal[0m[0m[32m"[90m # features/step_definitions/steps_header_search.rb:34[0m[0m
+
+  Scenario: Search by 3 characters (town)[90m            # /Users/ova/RubymineProjects/Miracle/features/search_header.feature:11[0m
+    [32mWhen I click on 'Search'[90m                         # features/step_definitions/steps_header_search.rb:25[0m[0m
+    [32mWhen I start writing "[32m[1mAma[0m[0m[32m"[90m                       # features/step_definitions/steps_header_search.rb:29[0m[0m
+    [32mThen I should see all results with "[32m[1mAma[0m[0m[32m" in town[90m # features/step_definitions/steps_header_search.rb:39[0m[0m
+
+  Scenario: Search by 3 numbers (addresses)[90m               # /Users/ova/RubymineProjects/Miracle/features/search_header.feature:16[0m
+    [31mAnd I logged[90m                                          # features/step_definitions/steps_header_search.rb:17[0m[0m
+[31m      no such window: target window already closed[0m
+[31m      from unknown error: web view not found[0m
+[31m        (Session info: chrome=68.0.3440.106)[0m
+[31m        (Driver info: chromedriver=2.40.565386 (45a059dc425e08165f9a10324bd1380cc13ca363),platform=Mac OS X 10.13.4 x86_64) (Selenium::WebDriver::Error::NoSuchWindowError)[0m
+[31m      ./features/step_definitions/steps_header_search.rb:18:in `/^I logged$/'[0m
+[31m      ./features/search_header.feature:4:in `And I logged'[0m
+    [36mWhen I click on 'Search'[90m                              # features/step_definitions/steps_header_search.rb:25[0m[0m
+    [36mWhen I start writing "[36m[1m134[0m[0m[36m"[90m                            # features/step_definitions/steps_header_search.rb:29[0m[0m
+    [36mThen I should see all results with "[36m[1m134[0m[0m[36m" in addresses[90m # features/step_definitions/steps_header_search.rb:44[0m[0m
+[31m      no such window: target window already closed[0m
+[31m      from unknown error: web view not found[0m
+[31m        (Session info: chrome=68.0.3440.106)[0m
+[31m        (Driver info: chromedriver=2.40.565386 (45a059dc425e08165f9a10324bd1380cc13ca363),platform=Mac OS X 10.13.4 x86_64) (Selenium::WebDriver::Error::NoSuchWindowError)[0m
+[31m      ./features/support/driver.rb:32:in `picture'[0m
+[31m      ./features/support/driver.rb:40:in `After'[0m
+[31m      chrome not reachable[0m
+[31m        (Session info: chrome=68.0.3440.106)[0m
+[31m        (Driver info: chromedriver=2.40.565386 (45a059dc425e08165f9a10324bd1380cc13ca363),platform=Mac OS X 10.13.4 x86_64) (Selenium::WebDriver::Error::WebDriverError)[0m
+
+  Scenario: Results number of title the same as results[90m           # /Users/ova/RubymineProjects/Miracle/features/search_header.feature:21[0m
+    [31mGiven I am on [31m[1mOuteast[0m[0m[31m[90m                                         # features/step_definitions/user_steps.rb:5[0m[0m
+[31m      no such window: target window already closed[0m
+[31m      from unknown error: web view not found[0m
+[31m        (Session info: chrome=68.0.3440.106)[0m
+[31m        (Driver info: chromedriver=2.40.565386 (45a059dc425e08165f9a10324bd1380cc13ca363),platform=Mac OS X 10.13.4 x86_64) (Selenium::WebDriver::Error::NoSuchWindowError)[0m
+[31m      ./features/step_definitions/user_steps.rb:6:in `/^I am on (.+)$/'[0m
+[31m      ./features/search_header.feature:3:in `Given I am on Outeast'[0m
+    [36mWhen I click on 'Search'[90m                                      # features/step_definitions/steps_header_search.rb:25[0m[0m
+    [36mWhen I start writing "[36m[1m125[0m[0m[36m"[90m                                    # features/step_definitions/steps_header_search.rb:29[0m[0m
+    [36mThen I should see results number of title the same as results[90m # features/step_definitions/steps_header_search.rb:48[0m[0m
+[31m      no such window: target window already closed[0m
+[31m      from unknown error: web view not found[0m
+[31m        (Session info: chrome=68.0.3440.106)[0m
+[31m        (Driver info: chromedriver=2.40.565386 (45a059dc425e08165f9a10324bd1380cc13ca363),platform=Mac OS X 10.13.4 x86_64) (Selenium::WebDriver::Error::NoSuchWindowError)[0m
+[31m      ./features/support/driver.rb:32:in `picture'[0m
+[31m      ./features/support/driver.rb:40:in `After'[0m
+[31m      chrome not reachable[0m
+[31m        (Session info: chrome=68.0.3440.106)[0m
+[31m        (Driver info: chromedriver=2.40.565386 (45a059dc425e08165f9a10324bd1380cc13ca363),platform=Mac OS X 10.13.4 x86_64) (Selenium::WebDriver::Error::WebDriverError)[0m
+
+  Scenario: Results are not displayed if there are no result[90m # /Users/ova/RubymineProjects/Miracle/features/search_header.feature:26[0m
+    [36mWhen I click on 'Search'[90m                                 # features/step_definitions/steps_header_search.rb:25[0m[0m
+    [36mWhen I start writing "[36m[1mblasblabla[0m[0m[36m"[90m                        # features/step_definitions/steps_header_search.rb:29[0m[0m
+    [36mThen I should see message about NO RESULTS[90m               # features/step_definitions/steps_header_search.rb:63[0m[0m
+[31m      no such window: target window already closed[0m
+[31m      from unknown error: web view not found[0m
+[31m        (Session info: chrome=68.0.3440.106)[0m
+[31m        (Driver info: chromedriver=2.40.565386 (45a059dc425e08165f9a10324bd1380cc13ca363),platform=Mac OS X 10.13.4 x86_64) (Selenium::WebDriver::Error::NoSuchWindowError)[0m
+[31m      ./features/support/driver.rb:32:in `picture'[0m
+[31m      ./features/support/driver.rb:40:in `After'[0m
+[31m      chrome not reachable[0m
+[31m        (Session info: chrome=68.0.3440.106)[0m
+[31m        (Driver info: chromedriver=2.40.565386 (45a059dc425e08165f9a10324bd1380cc13ca363),platform=Mac OS X 10.13.4 x86_64) (Selenium::WebDriver::Error::WebDriverError)[0m
+
+  Scenario: Direct from results page (address)[90m                 # /Users/ova/RubymineProjects/Miracle/features/search_header.feature:32[0m
+    [36mWhen I click on 'Search'[90m                                   # features/step_definitions/steps_header_search.rb:25[0m[0m
+    [36mWhen I start writing "[36m[1m124[0m[0m[36m"[90m                                 # features/step_definitions/steps_header_search.rb:29[0m[0m
+    [36mThen I should see all results with "[36m[1m124[0m[0m[36m"[90m                   # features/step_definitions/steps_header_search.rb:34[0m[0m
+    [36mThen I click any result[90m                                    # features/step_definitions/steps_header_search.rb:67[0m[0m
+    [36mAnd I direct to SRP with selected "[36m[1m124[0m[0m[36m" in addresses title[90m # features/step_definitions/steps_header_search.rb:73[0m[0m
+[31m      no such window: target window already closed[0m
+[31m      from unknown error: web view not found[0m
+[31m        (Session info: chrome=68.0.3440.106)[0m
+[31m        (Driver info: chromedriver=2.40.565386 (45a059dc425e08165f9a10324bd1380cc13ca363),platform=Mac OS X 10.13.4 x86_64) (Selenium::WebDriver::Error::NoSuchWindowError)[0m
+[31m      ./features/support/driver.rb:32:in `picture'[0m
+[31m      ./features/support/driver.rb:40:in `After'[0m
+[31m      chrome not reachable[0m
+[31m        (Session info: chrome=68.0.3440.106)[0m
+[31m        (Driver info: chromedriver=2.40.565386 (45a059dc425e08165f9a10324bd1380cc13ca363),platform=Mac OS X 10.13.4 x86_64) (Selenium::WebDriver::Error::WebDriverError)[0m
+
+  Scenario: Direct from results page (town)[90m                     # /Users/ova/RubymineProjects/Miracle/features/search_header.feature:39[0m
+    [36mWhen I click on 'Search'[90m                                    # features/step_definitions/steps_header_search.rb:25[0m[0m
+    [36mWhen I start writing "[36m[1mcal[0m[0m[36m"[90m                                  # features/step_definitions/steps_header_search.rb:29[0m[0m
+    [36mThen I should see all results with "[36m[1mcal[0m[0m[36m"[90m                    # features/step_definitions/steps_header_search.rb:34[0m[0m
+    [36mThen I click any result[90m                                     # features/step_definitions/steps_header_search.rb:67[0m[0m
+    [36mAnd I direct to HDP page with selected "[36m[1m[0m[0m[36m" in addresses town[90m # features/step_definitions/steps_header_search.rb:77[0m[0m
+[31m      no such window: target window already closed[0m
+[31m      from unknown error: web view not found[0m
+[31m        (Session info: chrome=68.0.3440.106)[0m
+[31m        (Driver info: chromedriver=2.40.565386 (45a059dc425e08165f9a10324bd1380cc13ca363),platform=Mac OS X 10.13.4 x86_64) (Selenium::WebDriver::Error::NoSuchWindowError)[0m
+[31m      ./features/support/driver.rb:32:in `picture'[0m
+[31m      ./features/support/driver.rb:40:in `After'[0m
+[31m      chrome not reachable[0m
+[31m        (Session info: chrome=68.0.3440.106)[0m
+[31m        (Driver info: chromedriver=2.40.565386 (45a059dc425e08165f9a10324bd1380cc13ca363),platform=Mac OS X 10.13.4 x86_64) (Selenium::WebDriver::Error::WebDriverError)[0m
+
+  Scenario: Search by 2spaces[90m                      # /Users/ova/RubymineProjects/Miracle/features/search_header.feature:46[0m
+    [36mWhen I click on 'Search'[90m                       # features/step_definitions/steps_header_search.rb:25[0m[0m
+    [36mWhen I start writing "[36m[1m  [0m[0m[36m"[90m                      # features/step_definitions/steps_header_search.rb:29[0m[0m
+    [36mThen I should see search page without changing[90m # features/step_definitions/steps_header_search.rb:81[0m[0m
+[31m      no such window: target window already closed[0m
+[31m      from unknown error: web view not found[0m
+[31m        (Session info: chrome=68.0.3440.106)[0m
+[31m        (Driver info: chromedriver=2.40.565386 (45a059dc425e08165f9a10324bd1380cc13ca363),platform=Mac OS X 10.13.4 x86_64) (Selenium::WebDriver::Error::NoSuchWindowError)[0m
+[31m      ./features/support/driver.rb:32:in `picture'[0m
+[31m      ./features/support/driver.rb:40:in `After'[0m
+[31m      chrome not reachable[0m
+[31m        (Session info: chrome=68.0.3440.106)[0m
+[31m        (Driver info: chromedriver=2.40.565386 (45a059dc425e08165f9a10324bd1380cc13ca363),platform=Mac OS X 10.13.4 x86_64) (Selenium::WebDriver::Error::WebDriverError)[0m
+
+  Scenario: Close search icon (main page)[90m # /Users/ova/RubymineProjects/Miracle/features/search_header.feature:51[0m
+    [36mWhen I click on 'Search'[90m              # features/step_definitions/steps_header_search.rb:25[0m[0m
+    [36mThen I click on 'X'[90m                   # features/step_definitions/steps_header_search.rb:86[0m[0m
+    [36mThen I should see main page[90m           # features/step_definitions/steps_header_search.rb:90[0m[0m
+[31m      no such window: target window already closed[0m
+[31m      from unknown error: web view not found[0m
+[31m        (Session info: chrome=68.0.3440.106)[0m
+[31m        (Driver info: chromedriver=2.40.565386 (45a059dc425e08165f9a10324bd1380cc13ca363),platform=Mac OS X 10.13.4 x86_64) (Selenium::WebDriver::Error::NoSuchWindowError)[0m
+[31m      ./features/support/driver.rb:32:in `picture'[0m
+[31m      ./features/support/driver.rb:40:in `After'[0m
+[31m      chrome not reachable[0m
+[31m        (Session info: chrome=68.0.3440.106)[0m
+[31m        (Driver info: chromedriver=2.40.565386 (45a059dc425e08165f9a10324bd1380cc13ca363),platform=Mac OS X 10.13.4 x86_64) (Selenium::WebDriver::Error::WebDriverError)[0m
+
+  Scenario: Close search icon (rental page)[90m # /Users/ova/RubymineProjects/Miracle/features/search_header.feature:56[0m
+    [36mWhen I click Rental[90m                     # features/step_definitions/steps_header_search.rb:96[0m[0m
+    [36mWhen I click on 'Search'[90m                # features/step_definitions/steps_header_search.rb:25[0m[0m
+    [36mThen I click on 'X'[90m                     # features/step_definitions/steps_header_search.rb:86[0m[0m
+    [36mThen I should see rental page[90m           # features/step_definitions/steps_header_search.rb:104[0m[0m
+[31m      no such window: target window already closed[0m
+[31m      from unknown error: web view not found[0m
+[31m        (Session info: chrome=68.0.3440.106)[0m
+[31m        (Driver info: chromedriver=2.40.565386 (45a059dc425e08165f9a10324bd1380cc13ca363),platform=Mac OS X 10.13.4 x86_64) (Selenium::WebDriver::Error::NoSuchWindowError)[0m
+[31m      ./features/support/driver.rb:32:in `picture'[0m
+[31m      ./features/support/driver.rb:40:in `After'[0m
+[31m      chrome not reachable[0m
+[31m        (Session info: chrome=68.0.3440.106)[0m
+[31m        (Driver info: chromedriver=2.40.565386 (45a059dc425e08165f9a10324bd1380cc13ca363),platform=Mac OS X 10.13.4 x86_64) (Selenium::WebDriver::Error::WebDriverError)[0m
+
+  Scenario: Close search icon (sales page)[90m # /Users/ova/RubymineProjects/Miracle/features/search_header.feature:62[0m
+    [36mWhen I click Sales[90m                     # features/step_definitions/steps_header_search.rb:100[0m[0m
+    [36mWhen I click on 'Search'[90m               # features/step_definitions/steps_header_search.rb:25[0m[0m
+    [36mThen I click on 'X'[90m                    # features/step_definitions/steps_header_search.rb:86[0m[0m
+    [36mThen I should see sales page[90m           # features/step_definitions/steps_header_search.rb:110[0m[0m
+[31m      no such window: target window already closed[0m
+[31m      from unknown error: web view not found[0m
+[31m        (Session info: chrome=68.0.3440.106)[0m
+[31m        (Driver info: chromedriver=2.40.565386 (45a059dc425e08165f9a10324bd1380cc13ca363),platform=Mac OS X 10.13.4 x86_64) (Selenium::WebDriver::Error::NoSuchWindowError)[0m
+[31m      ./features/support/driver.rb:32:in `picture'[0m
+[31m      ./features/support/driver.rb:40:in `After'[0m
+[31m      chrome not reachable[0m
+[31m        (Session info: chrome=68.0.3440.106)[0m
+[31m        (Driver info: chromedriver=2.40.565386 (45a059dc425e08165f9a10324bd1380cc13ca363),platform=Mac OS X 10.13.4 x86_64) (Selenium::WebDriver::Error::WebDriverError)[0m
+
+  Scenario: Direct to recently view from search[90m                       # /Users/ova/RubymineProjects/Miracle/features/search_header.feature:68[0m
+    [36mWhen I click Sales item[90m                                           # features/step_definitions/steps_header_search.rb:121[0m[0m
+    [36mWhen I click on 'Search'[90m                                          # features/step_definitions/steps_header_search.rb:25[0m[0m
+    [36mThen I see recently viewed[90m                                        # features/step_definitions/steps_header_search.rb:116[0m[0m
+    [36mAnd Price of clicked Sales item and recently viewed are identical[90m # features/step_definitions/steps_header_search.rb:127[0m[0m
+[31m      no such window: target window already closed[0m
+[31m      from unknown error: web view not found[0m
+[31m        (Session info: chrome=68.0.3440.106)[0m
+[31m        (Driver info: chromedriver=2.40.565386 (45a059dc425e08165f9a10324bd1380cc13ca363),platform=Mac OS X 10.13.4 x86_64) (Selenium::WebDriver::Error::NoSuchWindowError)[0m
+[31m      ./features/support/driver.rb:32:in `picture'[0m
+[31m      ./features/support/driver.rb:40:in `After'[0m
+[31m      chrome not reachable[0m
+[31m        (Session info: chrome=68.0.3440.106)[0m
+[31m        (Driver info: chromedriver=2.40.565386 (45a059dc425e08165f9a10324bd1380cc13ca363),platform=Mac OS X 10.13.4 x86_64) (Selenium::WebDriver::Error::WebDriverError)[0m
 
 [31mFailing Scenarios:[0m
-[31mcucumber /Users/ova/RubymineProjects/Miracle/features/test_api.feature:6[0m[90m # Scenario: POST listing[0m
+[31mcucumber /Users/ova/RubymineProjects/Miracle/features/search_header.feature:16[0m[90m # Scenario: Search by 3 numbers (addresses)[0m
+[31mcucumber /Users/ova/RubymineProjects/Miracle/features/search_header.feature:21[0m[90m # Scenario: Results number of title the same as results[0m
+[31mcucumber /Users/ova/RubymineProjects/Miracle/features/search_header.feature:26[0m[90m # Scenario: Results are not displayed if there are no result[0m
+[31mcucumber /Users/ova/RubymineProjects/Miracle/features/search_header.feature:32[0m[90m # Scenario: Direct from results page (address)[0m
+[31mcucumber /Users/ova/RubymineProjects/Miracle/features/search_header.feature:39[0m[90m # Scenario: Direct from results page (town)[0m
+[31mcucumber /Users/ova/RubymineProjects/Miracle/features/search_header.feature:46[0m[90m # Scenario: Search by 2spaces[0m
+[31mcucumber /Users/ova/RubymineProjects/Miracle/features/search_header.feature:51[0m[90m # Scenario: Close search icon (main page)[0m
+[31mcucumber /Users/ova/RubymineProjects/Miracle/features/search_header.feature:56[0m[90m # Scenario: Close search icon (rental page)[0m
+[31mcucumber /Users/ova/RubymineProjects/Miracle/features/search_header.feature:62[0m[90m # Scenario: Close search icon (sales page)[0m
+[31mcucumber /Users/ova/RubymineProjects/Miracle/features/search_header.feature:68[0m[90m # Scenario: Direct to recently view from search[0m
 
-1 scenario ([31m1 failed[0m)
-2 steps ([31m1 failed[0m, [32m1 passed[0m)
-0m5.384s
+12 scenarios ([31m10 failed[0m, [32m2 passed[0m)
+67 steps ([31m10 failed[0m, [36m46 skipped[0m, [32m11 passed[0m)
+0m32.934s

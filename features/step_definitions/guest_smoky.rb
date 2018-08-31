@@ -4,10 +4,6 @@ prev_button=".SimpleSlider-control.SimpleSlider-control--prev"
 stiky_tab=".AgentPageTabs-item"
 active_stiky_tab=".AgentPageTabs-item.isActive"
 
-And (/^I am guest$/) do
- expect(page).to have_css(".Header-actionWrapper", text: 'Sign In')
-end
-
 And (/^I am registered$/) do
   find('div.Header-actionWrapper').find('a.Header-actionName:nth-child(2)').click
   email = FFaker::Internet.email
@@ -15,6 +11,12 @@ And (/^I am registered$/) do
   fill_in 'password', :with => "12345678"
   click_button 'Sign'
 end
+
+
+And (/^I am guest$/) do
+ expect(page).to have_css(".Header-actionWrapper", text: 'Sign In')
+end
+
 
 
 When /^I on main page$/ do
@@ -407,9 +409,9 @@ end
 Then /^I click SEND$/ do
   click_button "Send"
 end
-And /^I should see "Message has been sent"$/ do
-  expect(page).to have_css(".InfoBar-content", :text => "Message has been sent")
-end
+# And /^I should see "Message has been sent"$/ do
+#   expect(page).to have_css(".InfoBar-content", :text => "Message has been sent")
+# end
 Then /^I click SHARE$/ do
   find(".Button--iconShare").click
 end
@@ -426,17 +428,8 @@ end
 Then /^I click SEND share$/ do
   click_button "Send request"
 end
-And /^I should see "This listing has been shared!"$/ do
-  expect(page).to have_css(".InfoBar-content", :text => "This listing has been shared!")
-end
-Then /^If I see VIEW FULL HISTORY, I click it$/ do
- if find(".ToggabeText--table .ToggabeText-button", :visible =>true)
-   find(".ToggabeText-button", :text => "VIEW FULL HISTORY +").click
-   expect(page).to have_css(".ToggabeText--table", :visible =>false)
- else
-   puts"no more"
- end
-  puts page.current_url
+And (/^I should see "(.*?)"$/) do |infobar|
+  expect(page).to have_css(".InfoBar-content", :text => infobar)
 end
 
 #Slider
@@ -585,16 +578,15 @@ Then (/^I click "(.*?)" listing, I should see "(.*?)"$/) do |action, result|
   #puts random_listing
   listing = page.all(".CardDesktop-action", :exact_text =>action)[rand(random_listing)]
   listing.click
-  sleep 2
-  #puts listing.text
+  sleep 5
+  puts listing.text
   if listing.text == result
     res=true
   else
     res=false
   end
   expect(res).to be true
-  sleep 4
-  end
+end
 
 And (/^I should see "(.*?)" on the map$/) do |action|
   custom_expect (action)

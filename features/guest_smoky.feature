@@ -87,13 +87,6 @@ Feature: Smoky
     Then I click icon Twitter
     And I should see Twitter pages
 
-#Actions on SALES
-  Scenario:  PreviewCard
-    When I go to Sales page
-    Then I select town "Bridgehampton"
-    Then I click SEE RESULTS
-#need additions
-
   Scenario: SALES - ADVANCED FILTERS
     When I go to Sales page
     Then I click ADVANCED FILTERS
@@ -155,7 +148,6 @@ Feature: Smoky
    Then I click SHARE
    And I should see share form
    Then I click CLOSE share form
-   Then If I see VIEW FULL HISTORY, I click it
 
   Scenario: Contact agent/HDP
     When I go to Sales page
@@ -196,11 +188,26 @@ Feature: Smoky
     Then I click lightbox Save
     And I should see Registration form
     Then I click CLOSE form
+    Then I click > on main photo
+    Then I click < on main photo
+    Then I click on preview
+    Then I click on map
+    And I should see MapView
+
+  Scenario: Lightbox/SHARE
+    When I go to Sales page
+    Then I click listing
+    Then I click full screen photo
     Then I click lightbox SHARE
     Then I fill email
     Then I fill share with
     Then I click SEND share
     And I should see "This listing has been shared!"
+
+  Scenario: Lightbox/CONTACT AGENT
+    When I go to Sales page
+    Then I click listing
+    Then I click full screen photo
     Then I click lightbox CONTACT AGENT
     Then I fill name
     Then I fill email
@@ -208,11 +215,6 @@ Feature: Smoky
     Then I fill message
     Then I click SEND
     And I should see "Message has been sent"
-    Then I click > on main photo
-    Then I click < on main photo
-    Then I click on preview
-    Then I click on map
-    And I should see MapView
 
   Scenario: To Agent page
     When I go to HDP

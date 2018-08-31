@@ -37,7 +37,7 @@ end
 
 After do |scenario|
    if scenario.failed?
-   ###### picture
+    picture
   end
   # Capybara.reset_session!
   # page.driver.browser.manage.delete_all_cookies
@@ -50,6 +50,7 @@ RSpec.configure do |config|
 
   config.after(:each) do
     Capybara.reset_sessions!
+    page.driver.browser.manage.delete_all_cookies
   end
 end
 
