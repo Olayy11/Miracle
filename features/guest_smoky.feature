@@ -1,248 +1,248 @@
 Feature: Smoky
    Background:
-   Given I am on Outeast
-   And I am guest
+   Given Visitor is at Outeast
+   And Visitor is guest
 
   Scenario: Search by Compact Search Bar - SALES
-     When I see Sales is active
-     Then I select town "Bridgehampton"
-     Then I select min price 2000000 and max price 40000000
-     Then I select beds "2"
-     Then I click SEE HOMES
-     And I should see all listings with "Bridgehampton" town - SEARCHBAR, TITLE,LISTINGS
-     And I should see all listings price between selected price min 2000000 and max 40000000
-     And I should see all listings from selected beds 2
-     Then I click next page if there is pagination
-     And I should see next page
+     When Visitor should see Sales is active
+     Then Visitor selects town "Bridgehampton"
+     Then Visitor selects min price 2000000 and max price 40000000
+     Then Visitor selects beds "2"
+     Then Visitor clicks SEE HOMES
+     And Visitor should see all listings with "Bridgehampton" town - SEARCHBAR, TITLE,LISTINGS
+     And Visitor should see all listings price between selected price min 2000000 and max 40000000
+     And Visitor should see all listings from selected beds 2
+     Then Visitor click next page if there is pagination
+     And Visitor should see next page
 
   Scenario: Search by Compact Search Bar - RENTALS
-    When I see Sales is active
-    Then I click Rentals
-    And I see Rentals is active
-    Then I select town "Bridgehampton"
-    Then I select dates "June"
-    Then I select min price 2000000 and max price 40000000
-    Then I select beds "2"
-    Then I click SEE HOMES
-    And I should see all listings with "Bridgehampton" town - SEARCHBAR, TITLE,LISTINGS
-    And I should see all listings price between selected price min 200000 and max 40000000
-    And I should see selected dates "June"
-    And I should see all listings from selected beds 2
+    When Visitor should see Sales is active
+    Then Visitor clicks Rentals
+    And Visitor should see Rentals is active
+    Then Visitor selects town "Bridgehampton"
+    Then Visitor selects dates "June"
+    Then Visitor selects min price 2000000 and max price 40000000
+    Then Visitor selects beds "2"
+    Then Visitor clicks SEE HOMES
+    And Visitor should see all listings with "Bridgehampton" town - SEARCHBAR, TITLE,LISTINGS
+    And Visitor should see all listings price between selected price min 200000 and max 40000000
+    And Visitor should see selected dates "June"
+    And Visitor should see all listings from selected beds 2
 
   Scenario: Listings Youll Love is shown
-    When I see 4 Listings Youll Love
-    Then I click one of listings "You’ll Love"
-    And I should see page with listings
+    When Visitor should see 4 Listings Youll Love
+    Then Visitor clicks one of listings "You’ll Love"
+    And Visitor should see page with listings
 
   Scenario: New to the Market is shown
-    When I see "New to the Market" block
-    Then I click on < button for NEW
-    Then I click on > button for NEW
-    Then I click VIEW ALL
-    And I should see page All Hamptons Real Estate and sort by NEW
+    When Visitor should see "New to the Market" box
+    Then Visitor clicks on < button for NEW
+    Then Visitor clicks on > button for NEW
+    Then Visitor clicks VIEW ALL
+    And Visitor should see page All Hamptons Real Estate and sort by NEW
 
   Scenario: Trending Properties is shown
-    When I see "Trending Properties" block
-    Then I click on < button for PROPERTTIES
-    Then I click on > button for PROPERTTIES
+    When Visitor should see "Trending Properties" box
+    Then Visitor clicks on < button for PROPERTTIES
+    Then Visitor clicks on > button for PROPERTTIES
 
   Scenario: Guides from main page
-    When I see 4 guides cards
-    Then I click "VIEW ALL GUIDES" and I see NEW TAB with url "/guides/"
-    Then I click on 1 of 4 Local Guides
-    And I should see page with this clicked guides
+    When Visitor should see 4 guides cards
+    Then Visitor clicks "VIEW ALL GUIDES" and should see NEW TAB with url "/guides/"
+    Then Visitor clicks on 1 of 4 Local Guides
+    And Visitor should see page with this clicked guides
 
   Scenario: Stories from main page
-    When I see 3 stories cards
-    Then I click "VIEW MORE STORIES" and I see NEW TAB with url "/stories/"
-    Then I click on 1 of 3 stories
-    And I should see page with this clicked stories
+    When Visitor see 3 stories cards
+    Then Visitor clicks "VIEW MORE STORIES" and should see NEW TAB with url "/stories/"
+    Then Visitor clicks on 1 of 3 stories
+    And Visitor should see page with this clicked stories
 
   Scenario: Quick Links
-    Then I click SALES of footer
-    And I should see SALES pages
-    Then I back to main page
-    Then I click RENTALS of footer
-    And I should see RENTALS pages
-    Then I back to main page
-    Then I click LAND
-    And I should see LAND pages
-    Then I back to main page
-    Then I click STORIES
-    And I should see STORIES pages
-    Then I click OPEN HOUSES
-    And I should see OPEN HOUSES pages and listings with labels
-    Then I click CAREERS
-    And I should see CAREERS pages
-    Then I go back
-    And I should see PRESS with mailto
+    Then Visitor clicks SALES of footer
+    And Visitor should see SALES pages
+    Then Visitor backs to main page
+    Then Visitor clicks RENTALS of footer
+    And Visitor should see RENTALS pages
+    Then Visitor backs to main page
+    Then Visitor clicks LAND
+    And Visitor should see LAND pages
+    Then Visitor backs to main page
+    Then Visitor clicks STORIES
+    And Visitor should see STORIES pages
+    Then Visitor clicks OPEN HOUSES
+    And Visitor should see OPEN HOUSES pages and listings with labels
+    Then Visitor click CAREERS
+    And Visitor should see CAREERS pages
+    Then Visitor goes back
+    And Visitor should see PRESS with mailto
 
   Scenario: Social Links of footer
-    Then I click icon Instagram
-    And I should see Instagram pages
-    Then I go back
-    Then I click icon FB
-    And I should see FB pages
-    Then I go back
-    Then I click icon Twitter
-    And I should see Twitter pages
+    Then Visitor clicks icon Instagram
+    And Visitor should see Instagram pages
+    Then Visitor goes back
+    Then Visitor clicks icon FB
+    And Visitor should see FB pages
+    Then Visitor goes back
+    Then Visitor clicks icon Twitter
+    And Visitor should see Twitter pages
 
   Scenario: SALES - ADVANCED FILTERS
-    When I go to Sales page
-    Then I click ADVANCED FILTERS
-    And I should see filter modal
-    And I should see that SALES is active
-    Then I select town "Bridgehampton" in modal
-    Then I select min price 200000 and max price 4000000 in modal
-    Then I select bedrooms 3 in modal
-    Then I select bathrooms 3 in modal
-    Then I select acreage 1
-    Then I select Estimated Sq. Ft. "1500"
-    Then I select listing status "For Sale"
-    Then I select view "Waterview"
-   # Then I select and unselect amenities "Fireplace"
-    Then I click SEE RESULTS in modal
-    And I should see all listings with "Bridgehampton" town - SEARCHBAR, TITLE,LISTINGS
-    And I should see all listings price between selected price min 200000 and max 40000000
-    And I should see all listings from selected beds 3
-    And I should see all listings from selected baths "3"
+    When Visitor on Sales page
+    Then Visitor clicks ADVANCED FILTERS
+    And Visitor should see filter modal
+    And Visitor should see that SALES is active
+    Then Visitor selects town "Bridgehampton" in modal
+    Then Visitor selects min price 200000 and max price 4000000 in modal
+    Then Visitor selects bedrooms 3 in modal
+    Then Visitor selects bathrooms 3 in modal
+    Then Visitor selects acreage 1
+    Then Visitor selects Estimated Sq. Ft. "1500"
+    Then Visitor selects listing status "For Sale"
+    Then Visitor selects view "Waterview"
+   # Then Visitor selects and unselect amenities "Fireplace"
+    Then Visitor clicks SEE RESULTS in modal
+    And Visitor should see all listings with "Bridgehampton" town - SEARCHBAR, TITLE,LISTINGS
+    And Visitor should see all listings price between selected price min 200000 and max 40000000
+    And Visitor should see all listings from selected beds 3
+    And Visitor should see all listings from selected baths "3"
 
   Scenario: RENTALS - ADVANCED FILTERS
-    When I go to Rentals page
-    Then I click ADVANCED FILTERS
-    And I should see filter modal
-    And I should see that SALES is active
-    Then I select town "Amagansett" in modal
-    Then I select Rental Period "June" in modal
-    Then I select min price 200000 and max price 4000000 in modal
-    Then I select bedrooms 3 in modal
-    Then I select bathrooms 3 in modal
-    Then I select acreage 2
-    Then I select Estimated Sq. Ft. "1500"
-    Then I select listing status "Active"
-    Then I select view "Waterview"
-   #Then I select amenities "Fireplace"
-    Then I click SEE RESULTS in modal
-    And I should see No results
+    When Visitor on Rentals page
+    Then Visitor clicks ADVANCED FILTERS
+    And Visitor should see filter modal
+    And Visitor should see that SALES is active
+    Then Visitor selects town "Amagansett" in modal
+    Then Visitor selects Rental Period "June" in modal
+    Then Visitor selects min price 200000 and max price 4000000 in modal
+    Then Visitor selects bedrooms 3 in modal
+    Then Visitor selects bathrooms 3 in modal
+    Then Visitor selects acreage 2
+    Then Visitor selects Estimated Sq. Ft. "1500"
+    Then Visitor selects listing status "Active"
+    Then Visitor selects view "Waterview"
+   #Then Visitor selects amenities "Fireplace"
+    Then Visitor clicks SEE RESULTS in modal
+    And Visitor should see No results
 
   Scenario: Save Search
-  When I go to Rentals page
-  Then I click Save Search
-  And  I should see Registration form
+  When Visitor on Rentals page
+  Then Visitor clicks Save Search
+  And  Visitor should see Registration form
 
   Scenario: Save listing
-    When I go to Rentals page
-    Then I click Save listing
-    And  I should see Registration form
+    When Visitor on Rentals page
+    Then Visitor clicks Save listing
+    And  Visitor should see Registration form
 
   Scenario: Actions from HDP
-   When I go to Sales page
-   Then I click listing
-   And I should see listing page
-   Then I click Save
-   And I should see Registration form
-   Then I click CLOSE form
-   Then I click CONTACT AGENT
-   And I should see contact form
-   Then I click CLOSE contact form
-   Then I click SHARE
-   And I should see share form
-   Then I click CLOSE share form
+   When Visitor on Sales page
+   Then Visitor clicks listing
+   And Visitor should see listing page
+   Then Visitor clicks Save
+   And Visitor should see Registration form
+   Then Visitor clicks CLOSE form
+   Then Visitor clicks CONTACT AGENT
+   And Visitor should see contact form
+   Then Visitor clicks CLOSE contact form
+   Then Visitor clicks SHARE
+   And Visitor should see share form
+   Then Visitor clicks CLOSE share form
 
   Scenario: Contact agent/HDP
-    When I go to Sales page
-    Then I click listing
-    Then I click CONTACT AGENT
-    Then I fill name
-    Then I fill email
-    Then I fill phone
-    Then I fill message
-    Then I click SEND
-    And I should see "Message has been sent"
+    When Visitor on Sales page
+    Then Visitor clicks listing
+    Then Visitor clicks CONTACT AGENT
+    Then Visitor fills name
+    Then Visitor fills email
+    Then Visitor fills phone
+    Then Visitor fills message
+    Then Visitor clicks SEND
+    And Visitor should see "Message has been sent" message
 
   Scenario: Share listing/HDP
-    When I go to Sales page
-    Then I click listing
-    Then I click SHARE
-    Then I fill email
-    Then I fill share with
-    Then I click SEND share
-    And I should see "This listing has been shared!"
+    When Visitor on Sales page
+    Then Visitor clicks listing
+    Then Visitor clicks SHARE
+    Then Visitor fills email
+    Then Visitor fills share with
+    Then Visitor clicks SEND share
+    And Visitor should see "This listing has been shared!" message
 
   Scenario: Slider/HDP
-    When I go to Sales page
-    Then I click listing
-    Then I click > on main photo
-    Then I click < on main photo
-    Then I click > on the bottom,preview
-    Then I click < on the bottom,preview
-    Then I click map view
-    Then I close map view
-    Then I click full screen photo
-    And I should see Lightbox
+    When Visitor on Sales page
+    Then Visitor clicks listing
+    Then Visitor clicks > on main photo
+    Then Visitor clicks < on main photo
+    Then Visitor clicks > on the bottom,preview
+    Then Visitor clicks < on the bottom,preview
+    Then Visitor clicks map view
+    Then Visitor closes map view
+    Then Visitor clicks full screen photo
+    And Visitor should see Lightbox
 
   Scenario: Lightbox/HDP
-    When I go to Sales page
-    Then I click listing
-    Then I click full screen photo
-    Then I click lightbox Save
-    And I should see Registration form
-    Then I click CLOSE form
-    Then I click > on main photo
-    Then I click < on main photo
-    Then I click on preview
-    Then I click on map
-    And I should see MapView
+    When Visitor on Sales page
+    Then Visitor clicks listing
+    Then Visitor clicks full screen photo
+    Then Visitor clicks lightbox Save
+    And Visitor should see Registration form
+    Then Visitor clicks CLOSE form
+    Then Visitor clicks > on main photo
+    Then Visitor clicks < on main photo
+    Then Visitor clicks on preview
+    Then Visitor clicks on map
+    And Visitor should see MapView
 
   Scenario: Lightbox/SHARE
-    When I go to Sales page
-    Then I click listing
-    Then I click full screen photo
-    Then I click lightbox SHARE
-    Then I fill email
-    Then I fill share with
-    Then I click SEND share
-    And I should see "This listing has been shared!"
+    When Visitor on Sales page
+    Then Visitor clicks listing
+    Then Visitor clicks full screen photo
+    Then Visitor clicks lightbox SHARE
+    Then Visitor fills email
+    Then Visitor fills share with
+    Then Visitor clicks SEND share
+    And Visitor should see "This listing has been shared!" message
 
   Scenario: Lightbox/CONTACT AGENT
-    When I go to Sales page
-    Then I click listing
-    Then I click full screen photo
-    Then I click lightbox CONTACT AGENT
-    Then I fill name
-    Then I fill email
-    Then I fill phone
-    Then I fill message
-    Then I click SEND
-    And I should see "Message has been sent"
+    When Visitor on Sales page
+    Then Visitor clicks listing
+    Then Visitor clicks full screen photo
+    Then Visitor clicks lightbox CONTACT AGENT
+    Then Visitor fills name
+    Then Visitor fills email
+    Then Visitor fills phone
+    Then Visitor fills message
+    Then Visitor clicks SEND
+    And Visitor should see "Message has been sent" message
 
   Scenario: To Agent page
-    When I go to HDP
-    Then I click agent link
-    Then I should be on agent page
+    When Visitor goes to HDP
+    Then Visitor clicks agent link
+    Then Visitor should be on agent page
 
   Scenario: Agent page actions
-    When I'm on Agent page
-    Then I click CONTACT AGENT
-    And I should see contact form
-    Then I click CLOSE modal
-    Then I click Show phone number
-    And I should see a number
-    Then I scroll down
-    And I should see stiсky tab and Contact button
-    Then I click CONTACT AGENT stiсky
-    And I should see contact form
-    Then I click CLOSE modal
+    When Visitor on Agent page
+    Then Visitor clicks CONTACT AGENT
+    And Visitor should see contact form
+    Then Visitor clicks CLOSE modal
+    Then Visitor clicks Show phone number
+    And Visitor should see a number
+    Then Visitor scrolls down
+    And Visitor should see stiсky tab and Contact button
+    Then Visitor clicks CONTACT AGENT stiсky
+    And Visitor should see contact form
+    Then Visitor clicks CLOSE modal
 
   Scenario: Agent page TABS
     When I'm on Agent page
-    Then I click Active Sales
-    And I should see Active Sales
-    Then I click Past Sales
-    And I should see Past Sales
-    Then I click Past Rentals
-    And I should see Past Rentals
-    Then I click Active Rentals
-    And I should see Active Rentals
+    Then Visitor clicks Active Sales
+    And Visitor should see Active Sales
+    Then Visitor clicks Past Sales
+    And Visitor should see Past Sales
+    Then Visitor clicks Past Rentals
+    And Visitor should see Past Rentals
+    Then Visitor clicks Active Rentals
+    And Visitor should see Active Rentals
 
 

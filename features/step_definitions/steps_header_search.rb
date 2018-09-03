@@ -14,7 +14,7 @@ include VarHelper
 
 
 
-And (/^I logged$/) do
+And (/^(.+) is logged as user$/) do |role|
   find('div.Header-actionWrapper').find('a.Header-actionName:nth-child(1)').click
   fill_in 'email', :with => 'nunuveko@sfamo.com'
   fill_in 'password', :with => '12345678'
@@ -22,30 +22,30 @@ And (/^I logged$/) do
   sleep 7
 end
 
-When /^I click on 'Search'$/  do
+When /^(.+) clicks on 'Search'$/  do |role|
   find('input.HeaderSearch-field').click
 end
 
-When /^I start writing "(.*?)"$/ do |searchText|
+When /^(.+) starts writing "(.*?)"$/ do |role, searchText|
   find(".ExpandedHeaderSearch-editable").set searchText
   sleep 5
 end
 
-Then(/^I should see all results with "(.*?)"$/) do |expectedText|
+Then(/^(.+) should see all results with "(.*?)"$/) do |role, expectedText|
  expect(page).to have_css(".SearchResults-item", :text => expectedText)
  Capybara::Screenshot.autosave_on_failure = false
 end
 
-Then(/^I should see all results with "(.*?)" in town$/) do |expectedText|
+Then(/^(.+) should see all results with "(.*?)" in town$/) do |role, expectedText|
   expect(page).to have_css(towns, :text => expectedText)
   Capybara::Screenshot.autosave_on_failure = false
 end
 
-Then(/^I should see all results with "(.*?)" in addresses$/) do |expectedText|
+Then(/^(.+) should see all results with "(.*?)" in addresses$/) do |role,expectedText|
   expect(page).to have_css(address, :text => expectedText)
 end
 
-Then(/^I should see results number of title the same as results$/) do
+Then(/^(.+) should see results number of title the same as results$/) do |role|
   results_town=page.all(towns).count
   expect(page).to have_css(towns_title, :text => results_town)
   #puts results_town
@@ -60,71 +60,71 @@ Then(/^I should see results number of title the same as results$/) do
   #puts results_internet
 end
 
-Then(/^I should see message about NO RESULTS$/) do
+Then(/^(.+) should see message about NO RESULTS$/) do |role|
   expect(page).to have_content("Your search returned no results")
 end
 
-Then(/^I click any result$/) do
+Then(/^(.+) clicks any result$/) do |role|
   results_address=page.all(address).count
   page.all('.SearchResults-category:nth-child(2) .SearchResults-item  a')[rand(results_address)].click #select random address and click it
   end
 
 
-And (/^I direct to SRP with selected "(.*?)" in addresses title$/) do   |expectedText|
+And (/^(.+) directs to SRP with selected "(.*?)" in addresses title$/) do   |role, expectedText|
   expect(page).to have_css(".Hdp-locationInfo", :text => expectedText)
 end
 
-And (/^I direct to HDP page with selected "(.*?)" in addresses town$/) do  |expectedText|
+And (/^(.+) directs to HDP page with selected "(.*?)" in addresses town$/) do  |role,expectedText|
   expect(page).to have_css(".Multiselect-locationWrapper", :text => expectedText)
 end
 
-Then (/^I should see search page without changing$/) do
+Then (/^(.+) should see search page without changing$/) do |role|
   expect(page).to have_css(".ExpandedHeaderSearch")
   expect(page).to have_no_content('result')
 end
 
-Then (/^I click on 'X'$/)do
+Then (/^(.+) clicks on 'X'$/)do |role|
   find('.HeaderSearchCloseIcon').click
 end
 
-Then (/^I should see main page$/) do
+Then (/^(.+) should see main page$/) do |role|
   expect(page).to have_no_css(".SearchPanel-content")
   expect(page).to have_no_content('Start typing an address, town, or area')
   expect(page).to have_css(".CompactSearchBar")
 end
 
-When (/^I click Rental$/)do
+When (/^(.+) clicks Rental$/)do |role|
   visit '/for-rent';
 end
 
-When (/^I click Sales$/)do
+When (/^(.+) clicks Sales$/)do |role|
   visit '/for-sale';
 end
 
-Then (/^I should see rental page$/) do
+Then (/^(.+) should see rental page$/) do |role|
   expect(page).to have_no_css(".SearchPanel-content")
   expect(page).to have_no_content('Start typing an address, town, or area')
   expect(page).to have_css(".SearchBar")
 end
 
-Then (/^I should see sales page$/) do
+Then (/^(.+) should see sales page$/) do |role|
   expect(page).to have_no_css(".SearchPanel-content")
   expect(page).to have_no_content('Start typing an address, town, or area')
   expect(page).to have_css(".SearchBar")
 end
 
-Then (/^I see recently viewed$/) do
+Then (/^(.+) should see recently viewed$/) do |role|
 @titleprice=page.all(".Card-priceNumber")[0].text
 page.all('.Card.Card--withoutBorder a')[0].click
 end
 
-When (/^I click Sales item$/)do
+When (/^(.+) clicks Sales item$/)do |role|
   visit '/for-sale'
   find('.ListingGroup-card:nth-child(1) .CardDesktop').click
   @titlenumber=find(".Title--secondary").text
 end
 
-And (/^Price of clicked Sales item and recently viewed are identical$/)do
+And (/^(.+) should see that price of clicked Sales item and recently viewed are identical$/)do |role|
   expect(page).to have_css(".Title--secondary", :text=>@titleprice)
 end
 

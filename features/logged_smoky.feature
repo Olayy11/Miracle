@@ -1,54 +1,52 @@
 Feature: Smoky
   Background:
-    Given I am on Outeast
-    And I logged
+    Given Visitor is at Outeast
+    And Visitor is logged as user
 
   Scenario: Save Search
-    Then I go to Rentals page
+    Then User on Rentals page
 #    And I am registered
-    Then I select town "Laurel"
-    Then I click SEE RESULTS
-    Then I click Save Search
-    And  I should see SAVED search
-    Then I click SAVED
-    And  I should see SAVE search
-
+    Then User selects town "Laurel"
+    Then User clicks SEE RESULTS
+    Then User clicks Save Search
+    And  User should see SAVED search
+    Then User clicks SAVED
+    And  User should see SAVE search
 
   Scenario: Save listing
-    When I go to Rentals page
-    Then I click "SAVE" listing, I should see "SAVED"
-    Then I click "SAVED" listing, I should see "SAVE"
+    When User on Rentals page
+    Then User clicks "SAVE" listing, and should see "SAVED"
+    Then User clicks "SAVED" listing, and should see "SAVE"
 
   Scenario: Save/HDP
-    When I go to Sales page
-    Then I click any listing
-    Then I click Save
-    And I should see saved listing hdp
-    Then I click SAVED hdp
-    And I should see save listing
-
+    When User on Sales page
+    Then User clicks any listing
+    Then User clicks Save
+    And User should see saved listing hdp
+    Then User clicks SAVED hdp
+    And User should see save listing
 
   Scenario: Agent page click listing
-    When I'm on Agent page
-    Then I click any listing
-    And I should see HDP
+    When User on Agent page
+    Then User clicks any listing
+    And User should see HDP
 
   Scenario: Agent page save listing
-    When I'm on Agent page
+    When User on Agent page
 #    Then I am registered
-    Then I click "SAVE" listing, I should see "SAVED"
-    And I should see "SAVED preview" on the map
-    Then I click "SAVED" listing, I should see "SAVE"
+    Then User clicks "SAVE" listing, and should see "SAVED"
+    And User should see "SAVED preview" on the map
+    Then User clicks "SAVED" listing, and should see "SAVE"
 
   Scenario: Agent page save preview
-    When I'm on Agent page
-    Then I click "SAVE" listing, I should see "SAVED"
-    And I should see "SAVED preview" on the map
-    Then I click "SAVED preview" preview on the map
-    And I should see "SAVE preview" on the map
+    When User on Agent page
+    Then User clicks "SAVE" listing, and should see "SAVED"
+    And User should see "SAVED preview" on the map
+    Then User clicks "SAVED preview" preview on the map
+    And User should see "SAVE preview" on the map
 
   Scenario: Agent page, direct from preview
-    When I'm on Agent page
-    Then I click "SAVE" listing, I should see "SAVED"
-    Then I click review on the map
-    And I should see HDP
+    When User on Agent page
+    Then User clicks "SAVE" listing, and should see "SAVED"
+    Then User clicks review on the map
+    And User should see HDP

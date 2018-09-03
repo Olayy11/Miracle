@@ -1,193 +1,571 @@
 Using the default profile...
+Feature: Smoky
+
+  Background: [90m                  # /Users/ova/RubymineProjects/Miracle/features/guest_smoky.feature:2[0m
+    [32mGiven Visitor is at [32m[1mOuteast[0m[0m[32m[90m # features/step_definitions/user_steps.rb:5[0m[0m
+    [32mAnd Visitor is guest[90m        # features/step_definitions/guest_smoky.rb:16[0m[0m
+
+  Scenario: Search by Compact Search Bar - SALES[90m                                                  # /Users/ova/RubymineProjects/Miracle/features/guest_smoky.feature:6[0m
+    [32mWhen [32m[1mVisitor[0m[0m[32m should see Sales is active[90m                                                       # features/step_definitions/guest_smoky.rb:26[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m selects town "[32m[1mBridgehampton[0m[0m[32m"[90m                                                     # features/step_definitions/guest_smoky.rb:30[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m selects min price [32m[1m2000000[0m[0m[32m and max price [32m[1m40000000[0m[0m[32m[90m                                 # features/step_definitions/guest_smoky.rb:36[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m selects beds "2"[90m                                                                 # features/step_definitions/guest_smoky.rb:44[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks SEE HOMES[90m                                                                 # features/step_definitions/guest_smoky.rb:50[0m[0m
+    [32mAnd [32m[1mVisitor[0m[0m[32m should see all listings with "[32m[1mBridgehampton[0m[0m[32m" town - SEARCHBAR, TITLE,LISTINGS[90m     # features/step_definitions/guest_smoky.rb:59[0m[0m
+    [32mAnd [32m[1mVisitor[0m[0m[32m should see all listings price between selected price min [32m[1m2000000[0m[0m[32m and max [32m[1m40000000[0m[0m[32m[90m # features/step_definitions/guest_smoky.rb:65[0m[0m
+    [32mAnd [32m[1mVisitor[0m[0m[32m should see all listings from selected beds [32m[1m2[0m[0m[32m[90m                                      # features/step_definitions/guest_smoky.rb:69[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m click next page if there is pagination[90m                                           # features/step_definitions/guest_smoky.rb:73[0m[0m
+    [32mAnd [32m[1mVisitor[0m[0m[32m should see next page[90m                                                              # features/step_definitions/guest_smoky.rb:82[0m[0m
+
+  Scenario: Search by Compact Search Bar - RENTALS[90m                                               # /Users/ova/RubymineProjects/Miracle/features/guest_smoky.feature:18[0m
+    [32mWhen [32m[1mVisitor[0m[0m[32m should see Sales is active[90m                                                      # features/step_definitions/guest_smoky.rb:26[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks Rentals[90m                                                                  # features/step_definitions/guest_smoky.rb:90[0m[0m
+    [32mAnd [32m[1mVisitor[0m[0m[32m should see Rentals is active[90m                                                     # features/step_definitions/guest_smoky.rb:94[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m selects town "[32m[1mBridgehampton[0m[0m[32m"[90m                                                    # features/step_definitions/guest_smoky.rb:30[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m selects dates "[32m[1mJune[0m[0m[32m"[90m                                                            # features/step_definitions/guest_smoky.rb:98[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m selects min price [32m[1m2000000[0m[0m[32m and max price [32m[1m40000000[0m[0m[32m[90m                                # features/step_definitions/guest_smoky.rb:36[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m selects beds "2"[90m                                                                # features/step_definitions/guest_smoky.rb:44[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks SEE HOMES[90m                                                                # features/step_definitions/guest_smoky.rb:50[0m[0m
+    [32mAnd [32m[1mVisitor[0m[0m[32m should see all listings with "[32m[1mBridgehampton[0m[0m[32m" town - SEARCHBAR, TITLE,LISTINGS[90m    # features/step_definitions/guest_smoky.rb:59[0m[0m
+    [32mAnd [32m[1mVisitor[0m[0m[32m should see all listings price between selected price min [32m[1m200000[0m[0m[32m and max [32m[1m40000000[0m[0m[32m[90m # features/step_definitions/guest_smoky.rb:65[0m[0m
+    [32mAnd [32m[1mVisitor[0m[0m[32m should see selected dates "[32m[1mJune[0m[0m[32m"[90m                                                 # features/step_definitions/guest_smoky.rb:103[0m[0m
+    [32mAnd [32m[1mVisitor[0m[0m[32m should see all listings from selected beds [32m[1m2[0m[0m[32m[90m                                     # features/step_definitions/guest_smoky.rb:69[0m[0m
+
+  Scenario: Listings Youll Love is shown[90m              # /Users/ova/RubymineProjects/Miracle/features/guest_smoky.feature:32[0m
+    [32mWhen [32m[1mVisitor[0m[0m[32m should see [32m[1m4[0m[0m[32m Listings Youll Love[90m     # features/step_definitions/guest_smoky.rb:107[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks one of listings "You’ll Love"[90m # features/step_definitions/guest_smoky.rb:112[0m[0m
+    [32mAnd [32m[1mVisitor[0m[0m[32m should see page with listings[90m         # features/step_definitions/guest_smoky.rb:117[0m[0m
+
+  Scenario: New to the Market is shown[90m                                   # /Users/ova/RubymineProjects/Miracle/features/guest_smoky.feature:37[0m
+    [32mWhen [32m[1mVisitor[0m[0m[32m should see "[32m[1mNew to the Market[0m[0m[32m" box[90m                      # features/step_definitions/guest_smoky.rb:142[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks on < button for NEW[90m                              # features/step_definitions/guest_smoky.rb:127[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks on > button for NEW[90m                              # features/step_definitions/guest_smoky.rb:130[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks VIEW ALL[90m                                         # features/step_definitions/guest_smoky.rb:134[0m[0m
+      [36mhttps://staging.outeast.com/for-sale/order/newest[0m
+    [32mAnd [32m[1mVisitor[0m[0m[32m should see page All Hamptons Real Estate and sort by NEW[90m # features/step_definitions/guest_smoky.rb:139[0m[0m
+
+  Scenario: Trending Properties is shown[90m              # /Users/ova/RubymineProjects/Miracle/features/guest_smoky.feature:44[0m
+    [32mWhen [32m[1mVisitor[0m[0m[32m should see "[32m[1mTrending Properties[0m[0m[32m" box[90m # features/step_definitions/guest_smoky.rb:142[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks on < button for PROPERTTIES[90m   # features/step_definitions/guest_smoky.rb:146[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks on > button for PROPERTTIES[90m   # features/step_definitions/guest_smoky.rb:149[0m[0m
+
+  Scenario: Guides from main page[90m                                                    # /Users/ova/RubymineProjects/Miracle/features/guest_smoky.feature:49[0m
+    [32mWhen [32m[1mVisitor[0m[0m[32m should see [32m[1m4[0m[0m[32m guides cards[90m                                           # features/step_definitions/guest_smoky.rb:153[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks "[32m[1mVIEW ALL GUIDES[0m[0m[32m" and should see NEW TAB with url "[32m[1m/guides/[0m[0m[32m"[90m # features/step_definitions/guest_smoky.rb:162[0m[0m
+      [36mhttps://staging.outeast.com/guides/[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks on 1 of 4 Local Guides[90m                                       # features/step_definitions/guest_smoky.rb:171[0m[0m
+    [32mAnd [32m[1mVisitor[0m[0m[32m should see page with this clicked guides[90m                             # features/step_definitions/guest_smoky.rb:178[0m[0m
+      [36mhttps://staging.outeast.com/guides/amagansett/[0m
+
+  Scenario: Stories from main page[90m                                                      # /Users/ova/RubymineProjects/Miracle/features/guest_smoky.feature:55[0m
+    [32mWhen [32m[1mVisitor[0m[0m[32m see [32m[1m3[0m[0m[32m stories cards[90m                                                    # features/step_definitions/guest_smoky.rb:157[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks "[32m[1mVIEW MORE STORIES[0m[0m[32m" and should see NEW TAB with url "[32m[1m/stories/[0m[0m[32m"[90m # features/step_definitions/guest_smoky.rb:162[0m[0m
+      [36mhttps://staging.outeast.com/stories/[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks on 1 of 3 stories[90m                                               # features/step_definitions/guest_smoky.rb:189[0m[0m
+    [32mAnd [32m[1mVisitor[0m[0m[32m should see page with this clicked stories[90m                               # features/step_definitions/guest_smoky.rb:195[0m[0m
+      [36mhttps://staging.outeast.com/stories/what-to-do-on-a-rainy-day-in-the-north-fork/[0m
+
+  Scenario: Quick Links[90m                                               # /Users/ova/RubymineProjects/Miracle/features/guest_smoky.feature:61[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks SALES of footer[90m                               # features/step_definitions/guest_smoky.rb:208[0m[0m
+    [32mAnd [32m[1mVisitor[0m[0m[32m should see SALES pages[90m                                # features/step_definitions/guest_smoky.rb:211[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m backs to main page[90m                                   # features/step_definitions/guest_smoky.rb:252[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks RENTALS of footer[90m                             # features/step_definitions/guest_smoky.rb:214[0m[0m
+    [32mAnd [32m[1mVisitor[0m[0m[32m should see RENTALS pages[90m                              # features/step_definitions/guest_smoky.rb:217[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m backs to main page[90m                                   # features/step_definitions/guest_smoky.rb:252[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks LAND[90m                                          # features/step_definitions/guest_smoky.rb:220[0m[0m
+    [32mAnd [32m[1mVisitor[0m[0m[32m should see LAND pages[90m                                 # features/step_definitions/guest_smoky.rb:223[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m backs to main page[90m                                   # features/step_definitions/guest_smoky.rb:252[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks STORIES[90m                                       # features/step_definitions/guest_smoky.rb:226[0m[0m
+    [32mAnd [32m[1mVisitor[0m[0m[32m should see STORIES pages[90m                              # features/step_definitions/guest_smoky.rb:229[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks OPEN HOUSES[90m                                   # features/step_definitions/guest_smoky.rb:232[0m[0m
+    [32mAnd [32m[1mVisitor[0m[0m[32m should see OPEN HOUSES pages and listings with labels[90m # features/step_definitions/guest_smoky.rb:235[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m click CAREERS[90m                                        # features/step_definitions/guest_smoky.rb:238[0m[0m
+    [32mAnd [32m[1mVisitor[0m[0m[32m should see CAREERS pages[90m                              # features/step_definitions/guest_smoky.rb:241[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m goes back[90m                                            # features/step_definitions/guest_smoky.rb:248[0m[0m
+    [32mAnd [32m[1mVisitor[0m[0m[32m should see PRESS with mailto[90m                          # features/step_definitions/guest_smoky.rb:245[0m[0m
+
+  Scenario: Social Links of footer[90m         # /Users/ova/RubymineProjects/Miracle/features/guest_smoky.feature:80[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks icon Instagram[90m     # features/step_definitions/guest_smoky.rb:256[0m[0m
+    [32mAnd [32m[1mVisitor[0m[0m[32m should see Instagram pages[90m # features/step_definitions/guest_smoky.rb:259[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m goes back[90m                 # features/step_definitions/guest_smoky.rb:248[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks icon FB[90m            # features/step_definitions/guest_smoky.rb:262[0m[0m
+    [32mAnd [32m[1mVisitor[0m[0m[32m should see FB pages[90m        # features/step_definitions/guest_smoky.rb:265[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m goes back[90m                 # features/step_definitions/guest_smoky.rb:248[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks icon Twitter[90m       # features/step_definitions/guest_smoky.rb:268[0m[0m
+    [32mAnd [32m[1mVisitor[0m[0m[32m should see Twitter pages[90m   # features/step_definitions/guest_smoky.rb:271[0m[0m
+
+  Scenario: SALES - ADVANCED FILTERS[90m                                                             # /Users/ova/RubymineProjects/Miracle/features/guest_smoky.feature:90[0m
+    [32mWhen [32m[1mVisitor[0m[0m[32m on Sales page[90m                                                                   # features/step_definitions/guest_smoky.rb:275[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks ADVANCED FILTERS[90m                                                         # features/step_definitions/guest_smoky.rb:283[0m[0m
+    [32mAnd [32m[1mVisitor[0m[0m[32m should see filter modal[90m                                                          # features/step_definitions/guest_smoky.rb:287[0m[0m
+    [32mAnd [32m[1mVisitor[0m[0m[32m should see that SALES is active[90m                                                  # features/step_definitions/guest_smoky.rb:291[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m selects town "[32m[1mBridgehampton[0m[0m[32m" in modal[90m                                           # features/step_definitions/guest_smoky.rb:299[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m selects min price [32m[1m200000[0m[0m[32m and max price [32m[1m4000000[0m[0m[32m in modal[90m                         # features/step_definitions/guest_smoky.rb:304[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m selects bedrooms [32m[1m3[0m[0m[32m in modal[90m                                                     # features/step_definitions/guest_smoky.rb:309[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m selects bathrooms [32m[1m3[0m[0m[32m in modal[90m                                                    # features/step_definitions/guest_smoky.rb:313[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m selects acreage [32m[1m1[0m[0m[32m[90m                                                               # features/step_definitions/guest_smoky.rb:317[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m selects Estimated Sq. Ft. "1500"[90m                                                # features/step_definitions/guest_smoky.rb:321[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m selects listing status "[32m[1mFor Sale[0m[0m[32m"[90m                                               # features/step_definitions/guest_smoky.rb:324[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m selects view "[32m[1mWaterview[0m[0m[32m"[90m                                                        # features/step_definitions/guest_smoky.rb:328[0m[0m
+      # Then Visitor selects and unselect amenities "Fireplace"
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks SEE RESULTS in modal[90m                                                     # features/step_definitions/guest_smoky.rb:336[0m[0m
+    [32mAnd [32m[1mVisitor[0m[0m[32m should see all listings with "[32m[1mBridgehampton[0m[0m[32m" town - SEARCHBAR, TITLE,LISTINGS[90m    # features/step_definitions/guest_smoky.rb:59[0m[0m
+    [32mAnd [32m[1mVisitor[0m[0m[32m should see all listings price between selected price min [32m[1m200000[0m[0m[32m and max [32m[1m40000000[0m[0m[32m[90m # features/step_definitions/guest_smoky.rb:65[0m[0m
+    [32mAnd [32m[1mVisitor[0m[0m[32m should see all listings from selected beds [32m[1m3[0m[0m[32m[90m                                     # features/step_definitions/guest_smoky.rb:69[0m[0m
+    [32mAnd [32m[1mVisitor[0m[0m[32m should see all listings from selected baths "[32m[1m3[0m[0m[32m"[90m                                  # features/step_definitions/guest_smoky.rb:346[0m[0m
+
+  Scenario: RENTALS - ADVANCED FILTERS[90m                                   # /Users/ova/RubymineProjects/Miracle/features/guest_smoky.feature:110[0m
+    [32mWhen [32m[1mVisitor[0m[0m[32m on Rentals page[90m                                         # features/step_definitions/guest_smoky.rb:349[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks ADVANCED FILTERS[90m                                 # features/step_definitions/guest_smoky.rb:283[0m[0m
+    [32mAnd [32m[1mVisitor[0m[0m[32m should see filter modal[90m                                  # features/step_definitions/guest_smoky.rb:287[0m[0m
+    [32mAnd [32m[1mVisitor[0m[0m[32m should see that SALES is active[90m                          # features/step_definitions/guest_smoky.rb:291[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m selects town "[32m[1mAmagansett[0m[0m[32m" in modal[90m                      # features/step_definitions/guest_smoky.rb:299[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m selects Rental Period "[32m[1mJune[0m[0m[32m" in modal[90m                   # features/step_definitions/guest_smoky.rb:340[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m selects min price [32m[1m200000[0m[0m[32m and max price [32m[1m4000000[0m[0m[32m in modal[90m # features/step_definitions/guest_smoky.rb:304[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m selects bedrooms [32m[1m3[0m[0m[32m in modal[90m                             # features/step_definitions/guest_smoky.rb:309[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m selects bathrooms [32m[1m3[0m[0m[32m in modal[90m                            # features/step_definitions/guest_smoky.rb:313[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m selects acreage [32m[1m2[0m[0m[32m[90m                                       # features/step_definitions/guest_smoky.rb:317[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m selects Estimated Sq. Ft. "1500"[90m                        # features/step_definitions/guest_smoky.rb:321[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m selects listing status "[32m[1mActive[0m[0m[32m"[90m                         # features/step_definitions/guest_smoky.rb:324[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m selects view "[32m[1mWaterview[0m[0m[32m"[90m                                # features/step_definitions/guest_smoky.rb:328[0m[0m
+      #Then Visitor selects amenities "Fireplace"
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks SEE RESULTS in modal[90m                             # features/step_definitions/guest_smoky.rb:336[0m[0m
+    [32mAnd [32m[1mVisitor[0m[0m[32m should see No results[90m                                    # features/step_definitions/guest_smoky.rb:352[0m[0m
+
+  Scenario: Save Search[90m                      # /Users/ova/RubymineProjects/Miracle/features/guest_smoky.feature:128[0m
+    [32mWhen [32m[1mVisitor[0m[0m[32m on Rentals page[90m             # features/step_definitions/guest_smoky.rb:349[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks Save Search[90m          # features/step_definitions/guest_smoky.rb:356[0m[0m
+    [32mAnd [32m[1mVisitor[0m[0m[32m should see Registration form[90m # features/step_definitions/guest_smoky.rb:360[0m[0m
+
+  Scenario: Save listing[90m                     # /Users/ova/RubymineProjects/Miracle/features/guest_smoky.feature:133[0m
+    [32mWhen [32m[1mVisitor[0m[0m[32m on Rentals page[90m             # features/step_definitions/guest_smoky.rb:349[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks Save listing[90m         # features/step_definitions/guest_smoky.rb:365[0m[0m
+    [32mAnd [32m[1mVisitor[0m[0m[32m should see Registration form[90m # features/step_definitions/guest_smoky.rb:360[0m[0m
+
+  Scenario: Actions from HDP[90m                 # /Users/ova/RubymineProjects/Miracle/features/guest_smoky.feature:138[0m
+    [32mWhen [32m[1mVisitor[0m[0m[32m on Sales page[90m               # features/step_definitions/guest_smoky.rb:275[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks listing[90m              # features/step_definitions/guest_smoky.rb:369[0m[0m
+    [32mAnd [32m[1mVisitor[0m[0m[32m should see listing page[90m      # features/step_definitions/guest_smoky.rb:373[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks Save[90m                 # features/step_definitions/guest_smoky.rb:377[0m[0m
+    [32mAnd [32m[1mVisitor[0m[0m[32m should see Registration form[90m # features/step_definitions/guest_smoky.rb:360[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks CLOSE form[90m           # features/step_definitions/guest_smoky.rb:380[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks CONTACT AGENT[90m        # features/step_definitions/guest_smoky.rb:384[0m[0m
+    [32mAnd [32m[1mVisitor[0m[0m[32m should see contact form[90m      # features/step_definitions/guest_smoky.rb:388[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks CLOSE contact form[90m   # features/step_definitions/guest_smoky.rb:391[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks SHARE[90m                # features/step_definitions/guest_smoky.rb:415[0m[0m
+    [32mAnd [32m[1mVisitor[0m[0m[32m should see share form[90m        # features/step_definitions/guest_smoky.rb:418[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks CLOSE share form[90m     # features/step_definitions/guest_smoky.rb:421[0m[0m
+
+  Scenario: Contact agent/HDP[90m                              # /Users/ova/RubymineProjects/Miracle/features/guest_smoky.feature:152[0m
+    [32mWhen [32m[1mVisitor[0m[0m[32m on Sales page[90m                             # features/step_definitions/guest_smoky.rb:275[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks listing[90m                            # features/step_definitions/guest_smoky.rb:369[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks CONTACT AGENT[90m                      # features/step_definitions/guest_smoky.rb:384[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m fills name[90m                                # features/step_definitions/guest_smoky.rb:394[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m fills email[90m                               # features/step_definitions/guest_smoky.rb:398[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m fills phone[90m                               # features/step_definitions/guest_smoky.rb:402[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m fills message[90m                             # features/step_definitions/guest_smoky.rb:406[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks SEND[90m                               # features/step_definitions/guest_smoky.rb:409[0m[0m
+    [32mAnd [32m[1mVisitor[0m[0m[32m should see "[32m[1mMessage has been sent[0m[0m[32m" message[90m # features/step_definitions/guest_smoky.rb:431[0m[0m
+
+  Scenario: Share listing/HDP[90m                                      # /Users/ova/RubymineProjects/Miracle/features/guest_smoky.feature:163[0m
+    [32mWhen [32m[1mVisitor[0m[0m[32m on Sales page[90m                                     # features/step_definitions/guest_smoky.rb:275[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks listing[90m                                    # features/step_definitions/guest_smoky.rb:369[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks SHARE[90m                                      # features/step_definitions/guest_smoky.rb:415[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m fills email[90m                                       # features/step_definitions/guest_smoky.rb:398[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m fills share with[90m                                  # features/step_definitions/guest_smoky.rb:424[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks SEND share[90m                                 # features/step_definitions/guest_smoky.rb:428[0m[0m
+    [32mAnd [32m[1mVisitor[0m[0m[32m should see "[32m[1mThis listing has been shared![0m[0m[32m" message[90m # features/step_definitions/guest_smoky.rb:431[0m[0m
+
+  Scenario: Slider/HDP[90m                          # /Users/ova/RubymineProjects/Miracle/features/guest_smoky.feature:172[0m
+    [32mWhen [32m[1mVisitor[0m[0m[32m on Sales page[90m                  # features/step_definitions/guest_smoky.rb:275[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks listing[90m                 # features/step_definitions/guest_smoky.rb:369[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks > on main photo[90m         # features/step_definitions/guest_smoky.rb:439[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks < on main photo[90m         # features/step_definitions/guest_smoky.rb:436[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks > on the bottom,preview[90m # features/step_definitions/guest_smoky.rb:443[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks < on the bottom,preview[90m # features/step_definitions/guest_smoky.rb:446[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks map view[90m                # features/step_definitions/guest_smoky.rb:449[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m closes map view[90m                # features/step_definitions/guest_smoky.rb:452[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks full screen photo[90m       # features/step_definitions/guest_smoky.rb:455[0m[0m
+    [32mAnd [32m[1mVisitor[0m[0m[32m should see Lightbox[90m             # features/step_definitions/guest_smoky.rb:458[0m[0m
+
+  Scenario: Lightbox/HDP[90m                     # /Users/ova/RubymineProjects/Miracle/features/guest_smoky.feature:184[0m
+    [32mWhen [32m[1mVisitor[0m[0m[32m on Sales page[90m               # features/step_definitions/guest_smoky.rb:275[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks listing[90m              # features/step_definitions/guest_smoky.rb:369[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks full screen photo[90m    # features/step_definitions/guest_smoky.rb:455[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks lightbox Save[90m        # features/step_definitions/guest_smoky.rb:463[0m[0m
+    [32mAnd [32m[1mVisitor[0m[0m[32m should see Registration form[90m # features/step_definitions/guest_smoky.rb:360[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks CLOSE form[90m           # features/step_definitions/guest_smoky.rb:380[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks > on main photo[90m      # features/step_definitions/guest_smoky.rb:439[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks < on main photo[90m      # features/step_definitions/guest_smoky.rb:436[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks on preview[90m           # features/step_definitions/guest_smoky.rb:472[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks on map[90m               # features/step_definitions/guest_smoky.rb:476[0m[0m
+    [32mAnd [32m[1mVisitor[0m[0m[32m should see MapView[90m           # features/step_definitions/guest_smoky.rb:480[0m[0m
+
+  Scenario: Lightbox/SHARE[90m                                         # /Users/ova/RubymineProjects/Miracle/features/guest_smoky.feature:197[0m
+    [32mWhen [32m[1mVisitor[0m[0m[32m on Sales page[90m                                     # features/step_definitions/guest_smoky.rb:275[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks listing[90m                                    # features/step_definitions/guest_smoky.rb:369[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks full screen photo[90m                          # features/step_definitions/guest_smoky.rb:455[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks lightbox SHARE[90m                             # features/step_definitions/guest_smoky.rb:466[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m fills email[90m                                       # features/step_definitions/guest_smoky.rb:398[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m fills share with[90m                                  # features/step_definitions/guest_smoky.rb:424[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks SEND share[90m                                 # features/step_definitions/guest_smoky.rb:428[0m[0m
+    [32mAnd [32m[1mVisitor[0m[0m[32m should see "[32m[1mThis listing has been shared![0m[0m[32m" message[90m # features/step_definitions/guest_smoky.rb:431[0m[0m
+
+  Scenario: Lightbox/CONTACT AGENT[90m                         # /Users/ova/RubymineProjects/Miracle/features/guest_smoky.feature:207[0m
+    [32mWhen [32m[1mVisitor[0m[0m[32m on Sales page[90m                             # features/step_definitions/guest_smoky.rb:275[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks listing[90m                            # features/step_definitions/guest_smoky.rb:369[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks full screen photo[90m                  # features/step_definitions/guest_smoky.rb:455[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks lightbox CONTACT AGENT[90m             # features/step_definitions/guest_smoky.rb:469[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m fills name[90m                                # features/step_definitions/guest_smoky.rb:394[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m fills email[90m                               # features/step_definitions/guest_smoky.rb:398[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m fills phone[90m                               # features/step_definitions/guest_smoky.rb:402[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m fills message[90m                             # features/step_definitions/guest_smoky.rb:406[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks SEND[90m                               # features/step_definitions/guest_smoky.rb:409[0m[0m
+    [32mAnd [32m[1mVisitor[0m[0m[32m should see "[32m[1mMessage has been sent[0m[0m[32m" message[90m # features/step_definitions/guest_smoky.rb:431[0m[0m
+
+  Scenario: To Agent page[90m                # /Users/ova/RubymineProjects/Miracle/features/guest_smoky.feature:219[0m
+    [32mWhen [32m[1mVisitor[0m[0m[32m goes to HDP[90m             # features/step_definitions/guest_smoky.rb:509[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks agent link[90m       # features/step_definitions/guest_smoky.rb:512[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m should be on agent page[90m # features/step_definitions/guest_smoky.rb:516[0m[0m
+
+  Scenario: Agent page actions[90m                           # /Users/ova/RubymineProjects/Miracle/features/guest_smoky.feature:224[0m
+    [32mWhen [32m[1mVisitor[0m[0m[32m on Agent page[90m                           # features/step_definitions/guest_smoky.rb:521[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks CONTACT AGENT[90m                    # features/step_definitions/guest_smoky.rb:384[0m[0m
+    [32mAnd [32m[1mVisitor[0m[0m[32m should see contact form[90m                  # features/step_definitions/guest_smoky.rb:388[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks CLOSE modal[90m                      # features/step_definitions/guest_smoky.rb:530[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks Show phone number[90m                # features/step_definitions/guest_smoky.rb:524[0m[0m
+    [32mAnd [32m[1mVisitor[0m[0m[32m should see a number[90m                      # features/step_definitions/guest_smoky.rb:527[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m scrolls down[90m                            # features/step_definitions/guest_smoky.rb:557[0m[0m
+    [32mAnd [32m[1mVisitor[0m[0m[32m should see stiсky tab and Contact button[90m # features/step_definitions/guest_smoky.rb:561[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks CONTACT AGENT stiсky[90m             # features/step_definitions/guest_smoky.rb:566[0m[0m
+    [32mAnd [32m[1mVisitor[0m[0m[32m should see contact form[90m                  # features/step_definitions/guest_smoky.rb:388[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks CLOSE modal[90m                      # features/step_definitions/guest_smoky.rb:530[0m[0m
+
+  Scenario: Agent page TABS[90m               # /Users/ova/RubymineProjects/Miracle/features/guest_smoky.feature:237[0m
+    [32mWhen [32m[1mI'm[0m[0m[32m on Agent page[90m                # features/step_definitions/guest_smoky.rb:521[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks Active Sales[90m      # features/step_definitions/guest_smoky.rb:533[0m[0m
+    [32mAnd [32m[1mVisitor[0m[0m[32m should see Active Sales[90m   # features/step_definitions/guest_smoky.rb:545[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks Past Sales[90m        # features/step_definitions/guest_smoky.rb:536[0m[0m
+    [32mAnd [32m[1mVisitor[0m[0m[32m should see Past Sales[90m     # features/step_definitions/guest_smoky.rb:548[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks Past Rentals[90m      # features/step_definitions/guest_smoky.rb:539[0m[0m
+    [32mAnd [32m[1mVisitor[0m[0m[32m should see Past Rentals[90m   # features/step_definitions/guest_smoky.rb:551[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks Active Rentals[90m    # features/step_definitions/guest_smoky.rb:542[0m[0m
+    [32mAnd [32m[1mVisitor[0m[0m[32m should see Active Rentals[90m # features/step_definitions/guest_smoky.rb:554[0m[0m
+
+Feature: Smoky
+
+  Background: [90m                    # /Users/ova/RubymineProjects/Miracle/features/logged_smoky.feature:2[0m
+    [32mGiven Visitor is at [32m[1mOuteast[0m[0m[32m[90m   # features/step_definitions/user_steps.rb:5[0m[0m
+    [32mAnd [32m[1mVisitor[0m[0m[32m is logged as user[90m # features/step_definitions/steps_header_search.rb:17[0m[0m
+
+  Scenario: Save Search[90m              # /Users/ova/RubymineProjects/Miracle/features/logged_smoky.feature:6[0m
+    [32mThen [32m[1mUser[0m[0m[32m on Rentals page[90m        # features/step_definitions/guest_smoky.rb:349[0m[0m
+      #    And I am registered
+    [32mThen [32m[1mUser[0m[0m[32m selects town "[32m[1mLaurel[0m[0m[32m"[90m  # features/step_definitions/guest_smoky.rb:30[0m[0m
+    [32mThen [32m[1mUser[0m[0m[32m clicks SEE RESULTS[90m     # features/step_definitions/guest_smoky.rb:279[0m[0m
+    [32mThen [32m[1mUser[0m[0m[32m clicks Save Search[90m     # features/step_definitions/guest_smoky.rb:356[0m[0m
+    [32mAnd [32m[1mUser[0m[0m[32m should see SAVED search[90m # features/step_definitions/guest_smoky.rb:485[0m[0m
+    [32mThen [32m[1mUser[0m[0m[32m clicks SAVED[90m           # features/step_definitions/guest_smoky.rb:490[0m[0m
+    [32mAnd [32m[1mUser[0m[0m[32m should see SAVE search[90m  # features/step_definitions/guest_smoky.rb:493[0m[0m
+
+  Scenario: Save listing[90m                                    # /Users/ova/RubymineProjects/Miracle/features/logged_smoky.feature:16[0m
+    [32mWhen [32m[1mUser[0m[0m[32m on Rentals page[90m                               # features/step_definitions/guest_smoky.rb:349[0m[0m
+    [32mThen [32m[1mUser[0m[0m[32m clicks "[32m[1mSAVE[0m[0m[32m" listing, and should see "[32m[1mSAVED[0m[0m[32m"[90m # features/step_definitions/guest_smoky.rb:577[0m[0m
+      [36mSAVED[0m
+    [32mThen [32m[1mUser[0m[0m[32m clicks "[32m[1mSAVED[0m[0m[32m" listing, and should see "[32m[1mSAVE[0m[0m[32m"[90m # features/step_definitions/guest_smoky.rb:577[0m[0m
+      [36mSAVE[0m
+
+  Scenario: Save/HDP[90m                      # /Users/ova/RubymineProjects/Miracle/features/logged_smoky.feature:21[0m
+    [32mWhen [32m[1mUser[0m[0m[32m on Sales page[90m               # features/step_definitions/guest_smoky.rb:275[0m[0m
+    [32mThen [32m[1mUser[0m[0m[32m clicks any listing[90m          # features/step_definitions/guest_smoky.rb:569[0m[0m
+    [32mThen [32m[1mUser[0m[0m[32m clicks Save[90m                 # features/step_definitions/guest_smoky.rb:377[0m[0m
+    [32mAnd [32m[1mUser[0m[0m[32m should see saved listing hdp[90m # features/step_definitions/guest_smoky.rb:498[0m[0m
+    [32mThen [32m[1mUser[0m[0m[32m clicks SAVED hdp[90m            # features/step_definitions/guest_smoky.rb:501[0m[0m
+    [32mAnd [32m[1mUser[0m[0m[32m should see save listing[90m      # features/step_definitions/guest_smoky.rb:505[0m[0m
+
+  Scenario: Agent page click listing[90m # /Users/ova/RubymineProjects/Miracle/features/logged_smoky.feature:29[0m
+    [32mWhen [32m[1mUser[0m[0m[32m on Agent page[90m          # features/step_definitions/guest_smoky.rb:521[0m[0m
+    [32mThen [32m[1mUser[0m[0m[32m clicks any listing[90m     # features/step_definitions/guest_smoky.rb:569[0m[0m
+    [32mAnd [32m[1mUser[0m[0m[32m should see HDP[90m          # features/step_definitions/guest_smoky.rb:574[0m[0m
+
+  Scenario: Agent page save listing[90m                         # /Users/ova/RubymineProjects/Miracle/features/logged_smoky.feature:34[0m
+    [32mWhen [32m[1mUser[0m[0m[32m on Agent page[90m                                 # features/step_definitions/guest_smoky.rb:521[0m[0m
+      #    Then I am registered
+    [32mThen [32m[1mUser[0m[0m[32m clicks "[32m[1mSAVE[0m[0m[32m" listing, and should see "[32m[1mSAVED[0m[0m[32m"[90m # features/step_definitions/guest_smoky.rb:577[0m[0m
+      [36mSAVED[0m
+    [32mAnd [32m[1mUser[0m[0m[32m should see "[32m[1mSAVED preview[0m[0m[32m" on the map[90m          # features/step_definitions/guest_smoky.rb:592[0m[0m
+    [32mThen [32m[1mUser[0m[0m[32m clicks "[32m[1mSAVED[0m[0m[32m" listing, and should see "[32m[1mSAVE[0m[0m[32m"[90m # features/step_definitions/guest_smoky.rb:577[0m[0m
+      [36mSAVE[0m
+
+  Scenario: Agent page save preview[90m                         # /Users/ova/RubymineProjects/Miracle/features/logged_smoky.feature:41[0m
+    [32mWhen [32m[1mUser[0m[0m[32m on Agent page[90m                                 # features/step_definitions/guest_smoky.rb:521[0m[0m
+    [32mThen [32m[1mUser[0m[0m[32m clicks "[32m[1mSAVE[0m[0m[32m" listing, and should see "[32m[1mSAVED[0m[0m[32m"[90m # features/step_definitions/guest_smoky.rb:577[0m[0m
+      [36mSAVED[0m
+    [32mAnd [32m[1mUser[0m[0m[32m should see "[32m[1mSAVED preview[0m[0m[32m" on the map[90m          # features/step_definitions/guest_smoky.rb:592[0m[0m
+    [32mThen [32m[1mUser[0m[0m[32m clicks "SAVED preview" preview on the map[90m     # features/step_definitions/guest_smoky.rb:598[0m[0m
+    [32mAnd [32m[1mUser[0m[0m[32m should see "[32m[1mSAVE preview[0m[0m[32m" on the map[90m           # features/step_definitions/guest_smoky.rb:592[0m[0m
+
+  Scenario: Agent page, direct from preview[90m                 # /Users/ova/RubymineProjects/Miracle/features/logged_smoky.feature:48[0m
+    [32mWhen [32m[1mUser[0m[0m[32m on Agent page[90m                                 # features/step_definitions/guest_smoky.rb:521[0m[0m
+    [32mThen [32m[1mUser[0m[0m[32m clicks "[32m[1mSAVE[0m[0m[32m" listing, and should see "[32m[1mSAVED[0m[0m[32m"[90m # features/step_definitions/guest_smoky.rb:577[0m[0m
+      [36mSAVED[0m
+    [32mThen [32m[1mUser[0m[0m[32m clicks review on the map[90m                      # features/step_definitions/guest_smoky.rb:604[0m[0m
+    [32mAnd [32m[1mUser[0m[0m[32m should see HDP[90m                                 # features/step_definitions/guest_smoky.rb:574[0m[0m
+
+Feature: Profile
+
+  Background: [90m                    # /Users/ova/RubymineProjects/Miracle/features/profile.feature:2[0m
+    [32mGiven Visitor is at [32m[1mOuteast[0m[0m[32m[90m   # features/step_definitions/user_steps.rb:5[0m[0m
+    [32mAnd [32m[1mVisitor[0m[0m[32m is logged as user[90m # features/step_definitions/steps_header_search.rb:17[0m[0m
+
+  Scenario: Saved items modal[90m                     # /Users/ova/RubymineProjects/Miracle/features/profile.feature:6[0m
+    [32mWhen [32m[1mUser[0m[0m[32m hovers the mouse over "[32m[1mSaved Items[0m[0m[32m"[90m # features/step_definitions/profile.rb:4[0m[0m
+    [32mAnd [32m[1mUser[0m[0m[32m should see saved items Modal[90m         # features/step_definitions/profile.rb:7[0m[0m
+
+  Scenario: Saved listings "View all"[90m                # /Users/ova/RubymineProjects/Miracle/features/profile.feature:10[0m
+    [32mWhen [32m[1mUser[0m[0m[32m hovers the mouse over "[32m[1mSaved Items[0m[0m[32m"[90m    # features/step_definitions/profile.rb:4[0m[0m
+    [32mAnd [32m[1mUser[0m[0m[32m should see that "[32m[1mListings[0m[0m[32m" is active[90m    # features/step_definitions/profile.rb:17[0m[0m
+    [32mAnd [32m[1mUser[0m[0m[32m should see all listings with saved icon[90m # features/step_definitions/profile.rb:23[0m[0m
+    [32mThen [32m[1mUser[0m[0m[32m clicks VIEW ALL saved[90m                  # features/step_definitions/profile.rb:10[0m[0m
+    [32mAnd [32m[1mUser[0m[0m[32m should see "[32m[1m/saved_listings[0m[0m[32m" page[90m       # features/step_definitions/profile.rb:14[0m[0m
+
+  Scenario: Saved Searches view all[90m               # /Users/ova/RubymineProjects/Miracle/features/profile.feature:17[0m
+    [32mWhen [32m[1mUser[0m[0m[32m hovers the mouse over "[32m[1mSaved Items[0m[0m[32m"[90m # features/step_definitions/profile.rb:4[0m[0m
+    [32mAnd [32m[1mUser[0m[0m[32m should see that "[32m[1mListings[0m[0m[32m" is active[90m # features/step_definitions/profile.rb:17[0m[0m
+    [32mThen [32m[1mUser[0m[0m[32m clicks Searches[90m                     # features/step_definitions/profile.rb:20[0m[0m
+    [32mAnd [32m[1mUser[0m[0m[32m should see that "[32m[1mSearches[0m[0m[32m" is active[90m # features/step_definitions/profile.rb:17[0m[0m
+    [32mThen [32m[1mUser[0m[0m[32m clicks VIEW ALL saved[90m               # features/step_definitions/profile.rb:10[0m[0m
+    [32mAnd [32m[1mUser[0m[0m[32m should see "[32m[1m/saved_searches[0m[0m[32m" page[90m    # features/step_definitions/profile.rb:14[0m[0m
+
+  Scenario: Click from Saved listing[90m              # /Users/ova/RubymineProjects/Miracle/features/profile.feature:25[0m
+    [32mWhen [32m[1mUser[0m[0m[32m hovers the mouse over "[32m[1mSaved Items[0m[0m[32m"[90m # features/step_definitions/profile.rb:4[0m[0m
+    [32mThen [32m[1mUser[0m[0m[32m clicks any saved listing[90m            # features/step_definitions/profile.rb:26[0m[0m
+    [32mAnd [32m[1mUser[0m[0m[32m should see HDP[90m                       # features/step_definitions/guest_smoky.rb:574[0m[0m
+
+  Scenario: Click from Saved searches[90m             # /Users/ova/RubymineProjects/Miracle/features/profile.feature:30[0m
+    [31mAnd [31m[1mVisitor[0m[0m[31m is logged as user[90m                 # features/step_definitions/steps_header_search.rb:17[0m[0m
+[31m      Unable to find css "div.Header-actionWrapper" (Capybara::ElementNotFound)[0m
+[31m      ./features/step_definitions/steps_header_search.rb:18:in `/^(.+) is logged as user$/'[0m
+[31m      ./features/profile.feature:4:in `And Visitor is logged as user'[0m
+    [36mWhen [36m[1mUser[0m[0m[36m hovers the mouse over "[36m[1mSaved Items[0m[0m[36m"[90m # features/step_definitions/profile.rb:4[0m[0m
+    [36mThen [36m[1mUser[0m[0m[36m clicks Searches[90m                     # features/step_definitions/profile.rb:20[0m[0m
+    [36mThen [36m[1mUser[0m[0m[36m clicks any saved search[90m             # features/step_definitions/profile.rb:29[0m[0m
+    [36mAnd [36m[1mUser[0m[0m[36m should see SRP[90m                       # features/step_definitions/profile.rb:32[0m[0m
+
+  Scenario: Your account modal[90m                     # /Users/ova/RubymineProjects/Miracle/features/profile.feature:36[0m
+    [32mWhen [32m[1mUser[0m[0m[32m hovers the mouse over "[32m[1mYour Account[0m[0m[32m"[90m # features/step_definitions/profile.rb:4[0m[0m
+    [32mAnd [32m[1mUser[0m[0m[32m should see Your account Modal[90m         # features/step_definitions/profile.rb:36[0m[0m
+
+  Scenario: Direct from Email Preferences[90m          # /Users/ova/RubymineProjects/Miracle/features/profile.feature:40[0m
+    [32mWhen [32m[1mUser[0m[0m[32m hovers the mouse over "[32m[1mYour Account[0m[0m[32m"[90m # features/step_definitions/profile.rb:4[0m[0m
+    [32mThen [32m[1mUser[0m[0m[32m clicks "[32m[1mEmail Preferences[0m[0m[32m" item[90m      # features/step_definitions/profile.rb:39[0m[0m
+    [32mAnd [32m[1mUser[0m[0m[32m should see "[32m[1m/email_preferences[0m[0m[32m" page[90m  # features/step_definitions/profile.rb:14[0m[0m
+
+  Scenario: Direct from Edit profile[90m               # /Users/ova/RubymineProjects/Miracle/features/profile.feature:45[0m
+    [32mWhen [32m[1mUser[0m[0m[32m hovers the mouse over "[32m[1mYour Account[0m[0m[32m"[90m # features/step_definitions/profile.rb:4[0m[0m
+    [32mThen [32m[1mUser[0m[0m[32m clicks "[32m[1mEdit profile[0m[0m[32m" item[90m           # features/step_definitions/profile.rb:39[0m[0m
+    [32mAnd [32m[1mUser[0m[0m[32m should see "[32m[1m/users/edit[0m[0m[32m" page[90m         # features/step_definitions/profile.rb:14[0m[0m
+
+  Scenario: Log out[90m                                # /Users/ova/RubymineProjects/Miracle/features/profile.feature:50[0m
+    [32mWhen [32m[1mUser[0m[0m[32m hovers the mouse over "[32m[1mYour Account[0m[0m[32m"[90m # features/step_definitions/profile.rb:4[0m[0m
+    [32mThen [32m[1mUser[0m[0m[32m clicks "[32m[1mSign out[0m[0m[32m" item[90m               # features/step_definitions/profile.rb:39[0m[0m
+    [32mAnd [32m[1mUser[0m[0m[32m should see Signin[90m                     # features/step_definitions/profile.rb:43[0m[0m
+
+  #Saved items
+  Scenario: Saved listings, main block are shown[90m  # /Users/ova/RubymineProjects/Miracle/features/profile.feature:56[0m
+    [32mWhen [32m[1mUser[0m[0m[32m hovers the mouse over "[32m[1mSaved Items[0m[0m[32m"[90m # features/step_definitions/profile.rb:4[0m[0m
+    [32mThen [32m[1mUser[0m[0m[32m clicks VIEW ALL saved[90m               # features/step_definitions/profile.rb:10[0m[0m
+    [32mAnd [32m[1mUser[0m[0m[32m should see "[32m[1m/saved_listings[0m[0m[32m" page[90m    # features/step_definitions/profile.rb:14[0m[0m
+    [32mAnd [32m[1mUser[0m[0m[32m should see "[32m[1mSaved Listing[0m[0m[32m" is active[90m # features/step_definitions/profile.rb:47[0m[0m
+    [32mAnd [32m[1mUser[0m[0m[32m should see "[32m[1mSaved Sales[0m[0m[32m" block[90m       # features/step_definitions/profile.rb:50[0m[0m
+    [32mAnd [32m[1mUser[0m[0m[32m should see "[32m[1mSaved Rentals[0m[0m[32m" block[90m     # features/step_definitions/profile.rb:50[0m[0m
+
+  Scenario: Saved Sales, click listing[90m            # /Users/ova/RubymineProjects/Miracle/features/profile.feature:64[0m
+    [32mWhen [32m[1mUser[0m[0m[32m hovers the mouse over "[32m[1mSaved Items[0m[0m[32m"[90m # features/step_definitions/profile.rb:4[0m[0m
+    [32mThen [32m[1mUser[0m[0m[32m clicks VIEW ALL saved[90m               # features/step_definitions/profile.rb:10[0m[0m
+    [32mAnd [32m[1mUser[0m[0m[32m should see Saved Listing block[90m       # features/step_definitions/profile.rb:54[0m[0m
+    [32mThen [32m[1mUser[0m[0m[32m clicks any listing[90m                  # features/step_definitions/guest_smoky.rb:569[0m[0m
+    [32mAnd [32m[1mUser[0m[0m[32m should see HDP[90m                       # features/step_definitions/guest_smoky.rb:574[0m[0m
+
+  Scenario: Saved listings, save[90m                  # /Users/ova/RubymineProjects/Miracle/features/profile.feature:71[0m
+    [32mWhen [32m[1mUser[0m[0m[32m hovers the mouse over "[32m[1mSaved Items[0m[0m[32m"[90m # features/step_definitions/profile.rb:4[0m[0m
+    [32mThen [32m[1mUser[0m[0m[32m clicks VIEW ALL saved[90m               # features/step_definitions/profile.rb:10[0m[0m
+    [32mThen [32m[1mUser[0m[0m[32m clicks SAVED for one listing[90m        # features/step_definitions/profile.rb:58[0m[0m
+    [32mAnd [32m[1mUser[0m[0m[32m should SAVE[90m                          # features/step_definitions/profile.rb:62[0m[0m
+    [32mThen [32m[1mUser[0m[0m[32m reloads page[90m                        # features/step_definitions/profile.rb:66[0m[0m
+    [32mAnd [32m[1mUser[0m[0m[32m shouldn't see SAVE[90m                   # features/step_definitions/profile.rb:69[0m[0m
+
+  Scenario: Pagination, saved sale[90m                # /Users/ova/RubymineProjects/Miracle/features/profile.feature:79[0m
+    [32mWhen [32m[1mUser[0m[0m[32m hovers the mouse over "[32m[1mSaved Items[0m[0m[32m"[90m # features/step_definitions/profile.rb:4[0m[0m
+    [32mThen [32m[1mUser[0m[0m[32m clicks VIEW ALL saved[90m               # features/step_definitions/profile.rb:10[0m[0m
+    [32mThen [32m[1mUser[0m[0m[32m clicks "next" for "saved sale"[90m      # features/step_definitions/profile.rb:73[0m[0m
+    [32mAnd [32m[1mUser[0m[0m[32m should see "[32m[1m2 /[0m[0m[32m" info[90m                # features/step_definitions/profile.rb:77[0m[0m
+    [32mAnd [32m[1mUser[0m[0m[32m should see "[32m[1mSaved Sales[0m[0m[32m" block[90m       # features/step_definitions/profile.rb:50[0m[0m
+    [32mThen [32m[1mUser[0m[0m[32m click "prev" for "saved sale"[90m       # features/step_definitions/profile.rb:80[0m[0m
+    [32mAnd [32m[1mUser[0m[0m[32m should see "[32m[1m1 /[0m[0m[32m" info[90m                # features/step_definitions/profile.rb:77[0m[0m
+    [32mAnd [32m[1mUser[0m[0m[32m should see "[32m[1mSaved Sales[0m[0m[32m" block[90m       # features/step_definitions/profile.rb:50[0m[0m
+
+  Scenario: Pagination, saved listing[90m             # /Users/ova/RubymineProjects/Miracle/features/profile.feature:89[0m
+    [32mWhen [32m[1mUser[0m[0m[32m hovers the mouse over "[32m[1mSaved Items[0m[0m[32m"[90m # features/step_definitions/profile.rb:4[0m[0m
+    [32mThen [32m[1mUser[0m[0m[32m clicks VIEW ALL saved[90m               # features/step_definitions/profile.rb:10[0m[0m
+    [32mThen [32m[1mUser[0m[0m[32m click "next" for "saved rentals"[90m    # features/step_definitions/profile.rb:83[0m[0m
+    [32mAnd [32m[1mUser[0m[0m[32m should see "[32m[1m2 /[0m[0m[32m" info[90m                # features/step_definitions/profile.rb:77[0m[0m
+    [32mAnd [32m[1mUser[0m[0m[32m should see "[32m[1mSaved Rentals[0m[0m[32m" block[90m     # features/step_definitions/profile.rb:50[0m[0m
+    [32mThen [32m[1mUser[0m[0m[32m click "prev" for "saved rentals"[90m    # features/step_definitions/profile.rb:87[0m[0m
+    [32mAnd [32m[1mUser[0m[0m[32m should see "[32m[1m1 /[0m[0m[32m" info[90m                # features/step_definitions/profile.rb:77[0m[0m
+    [32mAnd [32m[1mUser[0m[0m[32m should see "[32m[1mSaved Rentals[0m[0m[32m" block[90m     # features/step_definitions/profile.rb:50[0m[0m
+
 Feature: Header Seacrh
 
-  Background: [90m            # /Users/ova/RubymineProjects/Miracle/features/search_header.feature:2[0m
-    [32mGiven I am on [32m[1mOuteast[0m[0m[32m[90m # features/step_definitions/user_steps.rb:5[0m[0m
-    [32mAnd I logged[90m          # features/step_definitions/steps_header_search.rb:17[0m[0m
+  Background: [90m                  # /Users/ova/RubymineProjects/Miracle/features/search_header.feature:2[0m
+    [32mGiven Visitor is at [32m[1mOuteast[0m[0m[32m[90m # features/step_definitions/user_steps.rb:5[0m[0m
+    [32mAnd Visitor is guest[90m        # features/step_definitions/guest_smoky.rb:16[0m[0m
 
-  Scenario: Search by 3 characters[90m           # /Users/ova/RubymineProjects/Miracle/features/search_header.feature:6[0m
-    [32mWhen I click on 'Search'[90m                 # features/step_definitions/steps_header_search.rb:25[0m[0m
-    [32mWhen I start writing "[32m[1mcal[0m[0m[32m"[90m               # features/step_definitions/steps_header_search.rb:29[0m[0m
-    [32mThen I should see all results with "[32m[1mcal[0m[0m[32m"[90m # features/step_definitions/steps_header_search.rb:34[0m[0m
+  Scenario: Search by 3 characters[90m                 # /Users/ova/RubymineProjects/Miracle/features/search_header.feature:6[0m
+    [32mWhen [32m[1mVisitor[0m[0m[32m clicks on 'Search'[90m                # features/step_definitions/steps_header_search.rb:25[0m[0m
+    [32mWhen [32m[1mVisitor[0m[0m[32m starts writing "[32m[1mcal[0m[0m[32m"[90m              # features/step_definitions/steps_header_search.rb:29[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m should see all results with "[32m[1mcal[0m[0m[32m"[90m # features/step_definitions/steps_header_search.rb:34[0m[0m
 
-  Scenario: Search by 3 characters (town)[90m            # /Users/ova/RubymineProjects/Miracle/features/search_header.feature:11[0m
-    [32mWhen I click on 'Search'[90m                         # features/step_definitions/steps_header_search.rb:25[0m[0m
-    [32mWhen I start writing "[32m[1mAma[0m[0m[32m"[90m                       # features/step_definitions/steps_header_search.rb:29[0m[0m
-    [32mThen I should see all results with "[32m[1mAma[0m[0m[32m" in town[90m # features/step_definitions/steps_header_search.rb:39[0m[0m
+  Scenario: Search by 3 characters (town)[90m                  # /Users/ova/RubymineProjects/Miracle/features/search_header.feature:11[0m
+    [32mWhen [32m[1mVisitor[0m[0m[32m clicks on 'Search'[90m                        # features/step_definitions/steps_header_search.rb:25[0m[0m
+    [32mWhen [32m[1mVisitor[0m[0m[32m starts writing "[32m[1mAma[0m[0m[32m"[90m                      # features/step_definitions/steps_header_search.rb:29[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m should see all results with "[32m[1mAma[0m[0m[32m" in town[90m # features/step_definitions/steps_header_search.rb:39[0m[0m
 
-  Scenario: Search by 3 numbers (addresses)[90m               # /Users/ova/RubymineProjects/Miracle/features/search_header.feature:16[0m
-    [31mAnd I logged[90m                                          # features/step_definitions/steps_header_search.rb:17[0m[0m
-[31m      no such window: target window already closed[0m
-[31m      from unknown error: web view not found[0m
-[31m        (Session info: chrome=68.0.3440.106)[0m
-[31m        (Driver info: chromedriver=2.40.565386 (45a059dc425e08165f9a10324bd1380cc13ca363),platform=Mac OS X 10.13.4 x86_64) (Selenium::WebDriver::Error::NoSuchWindowError)[0m
-[31m      ./features/step_definitions/steps_header_search.rb:18:in `/^I logged$/'[0m
-[31m      ./features/search_header.feature:4:in `And I logged'[0m
-    [36mWhen I click on 'Search'[90m                              # features/step_definitions/steps_header_search.rb:25[0m[0m
-    [36mWhen I start writing "[36m[1m134[0m[0m[36m"[90m                            # features/step_definitions/steps_header_search.rb:29[0m[0m
-    [36mThen I should see all results with "[36m[1m134[0m[0m[36m" in addresses[90m # features/step_definitions/steps_header_search.rb:44[0m[0m
-[31m      no such window: target window already closed[0m
-[31m      from unknown error: web view not found[0m
-[31m        (Session info: chrome=68.0.3440.106)[0m
-[31m        (Driver info: chromedriver=2.40.565386 (45a059dc425e08165f9a10324bd1380cc13ca363),platform=Mac OS X 10.13.4 x86_64) (Selenium::WebDriver::Error::NoSuchWindowError)[0m
-[31m      ./features/support/driver.rb:32:in `picture'[0m
-[31m      ./features/support/driver.rb:40:in `After'[0m
-[31m      chrome not reachable[0m
-[31m        (Session info: chrome=68.0.3440.106)[0m
-[31m        (Driver info: chromedriver=2.40.565386 (45a059dc425e08165f9a10324bd1380cc13ca363),platform=Mac OS X 10.13.4 x86_64) (Selenium::WebDriver::Error::WebDriverError)[0m
+  Scenario: Search by 3 numbers (addresses)[90m                     # /Users/ova/RubymineProjects/Miracle/features/search_header.feature:16[0m
+    [32mWhen [32m[1mVisitor[0m[0m[32m clicks on 'Search'[90m                             # features/step_definitions/steps_header_search.rb:25[0m[0m
+    [32mWhen [32m[1mVisitor[0m[0m[32m starts writing "[32m[1m134[0m[0m[32m"[90m                           # features/step_definitions/steps_header_search.rb:29[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m should see all results with "[32m[1m134[0m[0m[32m" in addresses[90m # features/step_definitions/steps_header_search.rb:44[0m[0m
 
-  Scenario: Results number of title the same as results[90m           # /Users/ova/RubymineProjects/Miracle/features/search_header.feature:21[0m
-    [31mGiven I am on [31m[1mOuteast[0m[0m[31m[90m                                         # features/step_definitions/user_steps.rb:5[0m[0m
-[31m      no such window: target window already closed[0m
-[31m      from unknown error: web view not found[0m
-[31m        (Session info: chrome=68.0.3440.106)[0m
-[31m        (Driver info: chromedriver=2.40.565386 (45a059dc425e08165f9a10324bd1380cc13ca363),platform=Mac OS X 10.13.4 x86_64) (Selenium::WebDriver::Error::NoSuchWindowError)[0m
-[31m      ./features/step_definitions/user_steps.rb:6:in `/^I am on (.+)$/'[0m
-[31m      ./features/search_header.feature:3:in `Given I am on Outeast'[0m
-    [36mWhen I click on 'Search'[90m                                      # features/step_definitions/steps_header_search.rb:25[0m[0m
-    [36mWhen I start writing "[36m[1m125[0m[0m[36m"[90m                                    # features/step_definitions/steps_header_search.rb:29[0m[0m
-    [36mThen I should see results number of title the same as results[90m # features/step_definitions/steps_header_search.rb:48[0m[0m
-[31m      no such window: target window already closed[0m
-[31m      from unknown error: web view not found[0m
-[31m        (Session info: chrome=68.0.3440.106)[0m
-[31m        (Driver info: chromedriver=2.40.565386 (45a059dc425e08165f9a10324bd1380cc13ca363),platform=Mac OS X 10.13.4 x86_64) (Selenium::WebDriver::Error::NoSuchWindowError)[0m
-[31m      ./features/support/driver.rb:32:in `picture'[0m
-[31m      ./features/support/driver.rb:40:in `After'[0m
-[31m      chrome not reachable[0m
-[31m        (Session info: chrome=68.0.3440.106)[0m
-[31m        (Driver info: chromedriver=2.40.565386 (45a059dc425e08165f9a10324bd1380cc13ca363),platform=Mac OS X 10.13.4 x86_64) (Selenium::WebDriver::Error::WebDriverError)[0m
+  Scenario: Results number of title the same as results[90m                 # /Users/ova/RubymineProjects/Miracle/features/search_header.feature:21[0m
+    [32mWhen [32m[1mVisitor[0m[0m[32m clicks on 'Search'[90m                                     # features/step_definitions/steps_header_search.rb:25[0m[0m
+    [32mWhen [32m[1mVisitor[0m[0m[32m starts writing "[32m[1m125[0m[0m[32m"[90m                                   # features/step_definitions/steps_header_search.rb:29[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m should see results number of title the same as results[90m # features/step_definitions/steps_header_search.rb:48[0m[0m
 
   Scenario: Results are not displayed if there are no result[90m # /Users/ova/RubymineProjects/Miracle/features/search_header.feature:26[0m
-    [36mWhen I click on 'Search'[90m                                 # features/step_definitions/steps_header_search.rb:25[0m[0m
-    [36mWhen I start writing "[36m[1mblasblabla[0m[0m[36m"[90m                        # features/step_definitions/steps_header_search.rb:29[0m[0m
-    [36mThen I should see message about NO RESULTS[90m               # features/step_definitions/steps_header_search.rb:63[0m[0m
-[31m      no such window: target window already closed[0m
-[31m      from unknown error: web view not found[0m
-[31m        (Session info: chrome=68.0.3440.106)[0m
-[31m        (Driver info: chromedriver=2.40.565386 (45a059dc425e08165f9a10324bd1380cc13ca363),platform=Mac OS X 10.13.4 x86_64) (Selenium::WebDriver::Error::NoSuchWindowError)[0m
-[31m      ./features/support/driver.rb:32:in `picture'[0m
-[31m      ./features/support/driver.rb:40:in `After'[0m
-[31m      chrome not reachable[0m
-[31m        (Session info: chrome=68.0.3440.106)[0m
-[31m        (Driver info: chromedriver=2.40.565386 (45a059dc425e08165f9a10324bd1380cc13ca363),platform=Mac OS X 10.13.4 x86_64) (Selenium::WebDriver::Error::WebDriverError)[0m
+    [32mWhen [32m[1mVisitor[0m[0m[32m clicks on 'Search'[90m                          # features/step_definitions/steps_header_search.rb:25[0m[0m
+    [32mWhen [32m[1mVisitor[0m[0m[32m starts writing "[32m[1mblasblabla[0m[0m[32m"[90m                 # features/step_definitions/steps_header_search.rb:29[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m should see message about NO RESULTS[90m         # features/step_definitions/steps_header_search.rb:63[0m[0m
 
-  Scenario: Direct from results page (address)[90m                 # /Users/ova/RubymineProjects/Miracle/features/search_header.feature:32[0m
-    [36mWhen I click on 'Search'[90m                                   # features/step_definitions/steps_header_search.rb:25[0m[0m
-    [36mWhen I start writing "[36m[1m124[0m[0m[36m"[90m                                 # features/step_definitions/steps_header_search.rb:29[0m[0m
-    [36mThen I should see all results with "[36m[1m124[0m[0m[36m"[90m                   # features/step_definitions/steps_header_search.rb:34[0m[0m
-    [36mThen I click any result[90m                                    # features/step_definitions/steps_header_search.rb:67[0m[0m
-    [36mAnd I direct to SRP with selected "[36m[1m124[0m[0m[36m" in addresses title[90m # features/step_definitions/steps_header_search.rb:73[0m[0m
-[31m      no such window: target window already closed[0m
-[31m      from unknown error: web view not found[0m
-[31m        (Session info: chrome=68.0.3440.106)[0m
-[31m        (Driver info: chromedriver=2.40.565386 (45a059dc425e08165f9a10324bd1380cc13ca363),platform=Mac OS X 10.13.4 x86_64) (Selenium::WebDriver::Error::NoSuchWindowError)[0m
-[31m      ./features/support/driver.rb:32:in `picture'[0m
-[31m      ./features/support/driver.rb:40:in `After'[0m
-[31m      chrome not reachable[0m
-[31m        (Session info: chrome=68.0.3440.106)[0m
-[31m        (Driver info: chromedriver=2.40.565386 (45a059dc425e08165f9a10324bd1380cc13ca363),platform=Mac OS X 10.13.4 x86_64) (Selenium::WebDriver::Error::WebDriverError)[0m
+  Scenario: Direct from results page (address)[90m                        # /Users/ova/RubymineProjects/Miracle/features/search_header.feature:32[0m
+    [32mWhen [32m[1mVisitor[0m[0m[32m clicks on 'Search'[90m                                   # features/step_definitions/steps_header_search.rb:25[0m[0m
+    [32mWhen [32m[1mVisitor[0m[0m[32m starts writing "[32m[1m124[0m[0m[32m"[90m                                 # features/step_definitions/steps_header_search.rb:29[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m should see all results with "[32m[1m124[0m[0m[32m"[90m                    # features/step_definitions/steps_header_search.rb:34[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks any result[90m                                    # features/step_definitions/steps_header_search.rb:67[0m[0m
+    [32mAnd [32m[1mVisitor[0m[0m[32m directs to SRP with selected "[32m[1m124[0m[0m[32m" in addresses title[90m # features/step_definitions/steps_header_search.rb:73[0m[0m
 
-  Scenario: Direct from results page (town)[90m                     # /Users/ova/RubymineProjects/Miracle/features/search_header.feature:39[0m
-    [36mWhen I click on 'Search'[90m                                    # features/step_definitions/steps_header_search.rb:25[0m[0m
-    [36mWhen I start writing "[36m[1mcal[0m[0m[36m"[90m                                  # features/step_definitions/steps_header_search.rb:29[0m[0m
-    [36mThen I should see all results with "[36m[1mcal[0m[0m[36m"[90m                    # features/step_definitions/steps_header_search.rb:34[0m[0m
-    [36mThen I click any result[90m                                     # features/step_definitions/steps_header_search.rb:67[0m[0m
-    [36mAnd I direct to HDP page with selected "[36m[1m[0m[0m[36m" in addresses town[90m # features/step_definitions/steps_header_search.rb:77[0m[0m
-[31m      no such window: target window already closed[0m
-[31m      from unknown error: web view not found[0m
-[31m        (Session info: chrome=68.0.3440.106)[0m
-[31m        (Driver info: chromedriver=2.40.565386 (45a059dc425e08165f9a10324bd1380cc13ca363),platform=Mac OS X 10.13.4 x86_64) (Selenium::WebDriver::Error::NoSuchWindowError)[0m
-[31m      ./features/support/driver.rb:32:in `picture'[0m
-[31m      ./features/support/driver.rb:40:in `After'[0m
-[31m      chrome not reachable[0m
-[31m        (Session info: chrome=68.0.3440.106)[0m
-[31m        (Driver info: chromedriver=2.40.565386 (45a059dc425e08165f9a10324bd1380cc13ca363),platform=Mac OS X 10.13.4 x86_64) (Selenium::WebDriver::Error::WebDriverError)[0m
+  Scenario: Direct from results page (town)[90m                            # /Users/ova/RubymineProjects/Miracle/features/search_header.feature:39[0m
+    [32mWhen [32m[1mVisitor[0m[0m[32m clicks on 'Search'[90m                                    # features/step_definitions/steps_header_search.rb:25[0m[0m
+    [32mWhen [32m[1mVisitor[0m[0m[32m starts writing "[32m[1mcal[0m[0m[32m"[90m                                  # features/step_definitions/steps_header_search.rb:29[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m should see all results with "[32m[1mcal[0m[0m[32m"[90m                     # features/step_definitions/steps_header_search.rb:34[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks any result[90m                                     # features/step_definitions/steps_header_search.rb:67[0m[0m
+    [32mAnd [32m[1mVisitor[0m[0m[32m directs to HDP page with selected "[32m[1m[0m[0m[32m" in addresses town[90m # features/step_definitions/steps_header_search.rb:77[0m[0m
 
-  Scenario: Search by 2spaces[90m                      # /Users/ova/RubymineProjects/Miracle/features/search_header.feature:46[0m
-    [36mWhen I click on 'Search'[90m                       # features/step_definitions/steps_header_search.rb:25[0m[0m
-    [36mWhen I start writing "[36m[1m  [0m[0m[36m"[90m                      # features/step_definitions/steps_header_search.rb:29[0m[0m
-    [36mThen I should see search page without changing[90m # features/step_definitions/steps_header_search.rb:81[0m[0m
-[31m      no such window: target window already closed[0m
-[31m      from unknown error: web view not found[0m
-[31m        (Session info: chrome=68.0.3440.106)[0m
-[31m        (Driver info: chromedriver=2.40.565386 (45a059dc425e08165f9a10324bd1380cc13ca363),platform=Mac OS X 10.13.4 x86_64) (Selenium::WebDriver::Error::NoSuchWindowError)[0m
-[31m      ./features/support/driver.rb:32:in `picture'[0m
-[31m      ./features/support/driver.rb:40:in `After'[0m
-[31m      chrome not reachable[0m
-[31m        (Session info: chrome=68.0.3440.106)[0m
-[31m        (Driver info: chromedriver=2.40.565386 (45a059dc425e08165f9a10324bd1380cc13ca363),platform=Mac OS X 10.13.4 x86_64) (Selenium::WebDriver::Error::WebDriverError)[0m
+  Scenario: Search by 2spaces[90m                            # /Users/ova/RubymineProjects/Miracle/features/search_header.feature:46[0m
+    [32mWhen [32m[1mVisitor[0m[0m[32m clicks on 'Search'[90m                      # features/step_definitions/steps_header_search.rb:25[0m[0m
+    [32mWhen [32m[1mVisitor[0m[0m[32m starts writing "[32m[1m  [0m[0m[32m"[90m                     # features/step_definitions/steps_header_search.rb:29[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m should see search page without changing[90m # features/step_definitions/steps_header_search.rb:81[0m[0m
 
   Scenario: Close search icon (main page)[90m # /Users/ova/RubymineProjects/Miracle/features/search_header.feature:51[0m
-    [36mWhen I click on 'Search'[90m              # features/step_definitions/steps_header_search.rb:25[0m[0m
-    [36mThen I click on 'X'[90m                   # features/step_definitions/steps_header_search.rb:86[0m[0m
-    [36mThen I should see main page[90m           # features/step_definitions/steps_header_search.rb:90[0m[0m
-[31m      no such window: target window already closed[0m
-[31m      from unknown error: web view not found[0m
-[31m        (Session info: chrome=68.0.3440.106)[0m
-[31m        (Driver info: chromedriver=2.40.565386 (45a059dc425e08165f9a10324bd1380cc13ca363),platform=Mac OS X 10.13.4 x86_64) (Selenium::WebDriver::Error::NoSuchWindowError)[0m
-[31m      ./features/support/driver.rb:32:in `picture'[0m
-[31m      ./features/support/driver.rb:40:in `After'[0m
-[31m      chrome not reachable[0m
-[31m        (Session info: chrome=68.0.3440.106)[0m
-[31m        (Driver info: chromedriver=2.40.565386 (45a059dc425e08165f9a10324bd1380cc13ca363),platform=Mac OS X 10.13.4 x86_64) (Selenium::WebDriver::Error::WebDriverError)[0m
+    [32mWhen [32m[1mVisitor[0m[0m[32m clicks on 'Search'[90m       # features/step_definitions/steps_header_search.rb:25[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks on 'X'[90m            # features/step_definitions/steps_header_search.rb:86[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m should see main page[90m     # features/step_definitions/steps_header_search.rb:90[0m[0m
 
   Scenario: Close search icon (rental page)[90m # /Users/ova/RubymineProjects/Miracle/features/search_header.feature:56[0m
-    [36mWhen I click Rental[90m                     # features/step_definitions/steps_header_search.rb:96[0m[0m
-    [36mWhen I click on 'Search'[90m                # features/step_definitions/steps_header_search.rb:25[0m[0m
-    [36mThen I click on 'X'[90m                     # features/step_definitions/steps_header_search.rb:86[0m[0m
-    [36mThen I should see rental page[90m           # features/step_definitions/steps_header_search.rb:104[0m[0m
-[31m      no such window: target window already closed[0m
-[31m      from unknown error: web view not found[0m
-[31m        (Session info: chrome=68.0.3440.106)[0m
-[31m        (Driver info: chromedriver=2.40.565386 (45a059dc425e08165f9a10324bd1380cc13ca363),platform=Mac OS X 10.13.4 x86_64) (Selenium::WebDriver::Error::NoSuchWindowError)[0m
-[31m      ./features/support/driver.rb:32:in `picture'[0m
-[31m      ./features/support/driver.rb:40:in `After'[0m
-[31m      chrome not reachable[0m
-[31m        (Session info: chrome=68.0.3440.106)[0m
-[31m        (Driver info: chromedriver=2.40.565386 (45a059dc425e08165f9a10324bd1380cc13ca363),platform=Mac OS X 10.13.4 x86_64) (Selenium::WebDriver::Error::WebDriverError)[0m
+    [32mWhen [32m[1mVisitor[0m[0m[32m clicks Rental[90m              # features/step_definitions/steps_header_search.rb:96[0m[0m
+    [32mWhen [32m[1mVisitor[0m[0m[32m clicks on 'Search'[90m         # features/step_definitions/steps_header_search.rb:25[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks on 'X'[90m              # features/step_definitions/steps_header_search.rb:86[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m should see rental page[90m     # features/step_definitions/steps_header_search.rb:104[0m[0m
 
   Scenario: Close search icon (sales page)[90m # /Users/ova/RubymineProjects/Miracle/features/search_header.feature:62[0m
-    [36mWhen I click Sales[90m                     # features/step_definitions/steps_header_search.rb:100[0m[0m
-    [36mWhen I click on 'Search'[90m               # features/step_definitions/steps_header_search.rb:25[0m[0m
-    [36mThen I click on 'X'[90m                    # features/step_definitions/steps_header_search.rb:86[0m[0m
-    [36mThen I should see sales page[90m           # features/step_definitions/steps_header_search.rb:110[0m[0m
-[31m      no such window: target window already closed[0m
-[31m      from unknown error: web view not found[0m
-[31m        (Session info: chrome=68.0.3440.106)[0m
-[31m        (Driver info: chromedriver=2.40.565386 (45a059dc425e08165f9a10324bd1380cc13ca363),platform=Mac OS X 10.13.4 x86_64) (Selenium::WebDriver::Error::NoSuchWindowError)[0m
-[31m      ./features/support/driver.rb:32:in `picture'[0m
-[31m      ./features/support/driver.rb:40:in `After'[0m
-[31m      chrome not reachable[0m
-[31m        (Session info: chrome=68.0.3440.106)[0m
-[31m        (Driver info: chromedriver=2.40.565386 (45a059dc425e08165f9a10324bd1380cc13ca363),platform=Mac OS X 10.13.4 x86_64) (Selenium::WebDriver::Error::WebDriverError)[0m
+    [32mWhen [32m[1mVisitor[0m[0m[32m clicks Sales[90m              # features/step_definitions/steps_header_search.rb:100[0m[0m
+    [32mWhen [32m[1mVisitor[0m[0m[32m clicks on 'Search'[90m        # features/step_definitions/steps_header_search.rb:25[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m clicks on 'X'[90m             # features/step_definitions/steps_header_search.rb:86[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m should see sales page[90m     # features/step_definitions/steps_header_search.rb:110[0m[0m
 
-  Scenario: Direct to recently view from search[90m                       # /Users/ova/RubymineProjects/Miracle/features/search_header.feature:68[0m
-    [36mWhen I click Sales item[90m                                           # features/step_definitions/steps_header_search.rb:121[0m[0m
-    [36mWhen I click on 'Search'[90m                                          # features/step_definitions/steps_header_search.rb:25[0m[0m
-    [36mThen I see recently viewed[90m                                        # features/step_definitions/steps_header_search.rb:116[0m[0m
-    [36mAnd Price of clicked Sales item and recently viewed are identical[90m # features/step_definitions/steps_header_search.rb:127[0m[0m
-[31m      no such window: target window already closed[0m
-[31m      from unknown error: web view not found[0m
-[31m        (Session info: chrome=68.0.3440.106)[0m
-[31m        (Driver info: chromedriver=2.40.565386 (45a059dc425e08165f9a10324bd1380cc13ca363),platform=Mac OS X 10.13.4 x86_64) (Selenium::WebDriver::Error::NoSuchWindowError)[0m
-[31m      ./features/support/driver.rb:32:in `picture'[0m
-[31m      ./features/support/driver.rb:40:in `After'[0m
-[31m      chrome not reachable[0m
-[31m        (Session info: chrome=68.0.3440.106)[0m
-[31m        (Driver info: chromedriver=2.40.565386 (45a059dc425e08165f9a10324bd1380cc13ca363),platform=Mac OS X 10.13.4 x86_64) (Selenium::WebDriver::Error::WebDriverError)[0m
+  Scenario: Direct to recently view from search[90m                                               # /Users/ova/RubymineProjects/Miracle/features/search_header.feature:68[0m
+    [32mWhen [32m[1mVisitor[0m[0m[32m clicks Sales item[90m                                                            # features/step_definitions/steps_header_search.rb:121[0m[0m
+    [32mWhen [32m[1mVisitor[0m[0m[32m clicks on 'Search'[90m                                                           # features/step_definitions/steps_header_search.rb:25[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m should see recently viewed[90m                                                   # features/step_definitions/steps_header_search.rb:116[0m[0m
+    [32mAnd [32m[1mVisitor[0m[0m[32m should see that price of clicked Sales item and recently viewed are identical[90m # features/step_definitions/steps_header_search.rb:127[0m[0m
+
+Feature: Login to Outeast
+
+  Background: [90m                  # /Users/ova/RubymineProjects/Miracle/features/sign_in.feature:2[0m
+    [32mGiven Visitor is at [32m[1mOuteast[0m[0m[32m[90m # features/step_definitions/user_steps.rb:5[0m[0m
+
+  Scenario: Login via valid data[90m                                                    # /Users/ova/RubymineProjects/Miracle/features/sign_in.feature:5[0m
+    [32mWhen [32m[1mVisitor[0m[0m[32m clicks on 'Sign in'[90m                                                # features/step_definitions/user_steps.rb:10[0m[0m
+    [32mWhen [32m[1mVisitor[0m[0m[32m tries to login with "[32m[1m8@gmail.com[0m[0m[32m" username and "[32m[1mqwertyQ1[0m[0m[32m" password[90m # features/step_definitions/user_steps.rb:14[0m[0m
+    [32mThen [32m[1mUser[0m[0m[32m successfully logged[90m                                                   # features/step_definitions/user_steps.rb:30[0m[0m
+
+  Scenario: Login via invalid data[90m                                                      # /Users/ova/RubymineProjects/Miracle/features/sign_in.feature:10[0m
+    [32mWhen [32m[1mVisitor[0m[0m[32m clicks on 'Sign in'[90m                                                    # features/step_definitions/user_steps.rb:10[0m[0m
+    [32mWhen [32m[1mVisitor [0m[0m[32m tries to login with "[32m[1m822@gmail.com[0m[0m[32m" username and "[32m[1mqwerty2Q1[0m[0m[32m" password[90m # features/step_definitions/user_steps.rb:14[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m should see message about invalid email or password[90m                     # features/step_definitions/user_steps.rb:34[0m[0m
+
+  Scenario: Login via empty fields[90m                               # /Users/ova/RubymineProjects/Miracle/features/sign_in.feature:15[0m
+    [32mWhen [32m[1mVisitor[0m[0m[32m clicks on 'Sign in'[90m                             # features/step_definitions/user_steps.rb:10[0m[0m
+    [32mWhen [32m[1mVisitor[0m[0m[32m tries to login with "[32m[1m[0m[0m[32m" username and "[32m[1m[0m[0m[32m" password[90m # features/step_definitions/user_steps.rb:14[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m should see message about empty fields[90m           # features/step_definitions/user_steps.rb:38[0m[0m
+
+  Scenario: Login via empty email[90m                                        # /Users/ova/RubymineProjects/Miracle/features/sign_in.feature:20[0m
+    [32mWhen [32m[1mVisitor[0m[0m[32m clicks on 'Sign in'[90m                                     # features/step_definitions/user_steps.rb:10[0m[0m
+    [32mWhen [32m[1mVisitor[0m[0m[32m tries to login with "[32m[1m[0m[0m[32m" username and "[32m[1mqwertyQ1[0m[0m[32m" password[90m # features/step_definitions/user_steps.rb:14[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m should see message about empty email[90m                    # features/step_definitions/user_steps.rb:43[0m[0m
+
+  Scenario: Login via empty password[90m                                        # /Users/ova/RubymineProjects/Miracle/features/sign_in.feature:25[0m
+    [32mWhen [32m[1mVisitor[0m[0m[32m clicks on 'Sign in'[90m                                        # features/step_definitions/user_steps.rb:10[0m[0m
+    [32mWhen [32m[1mVisitor[0m[0m[32m tries to login with "[32m[1m8@gmail.com[0m[0m[32m" username and "[32m[1m[0m[0m[32m" password[90m # features/step_definitions/user_steps.rb:14[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m should see message about empty password[90m                    # features/step_definitions/user_steps.rb:47[0m[0m
+
+  Scenario: Login via not registered data[90m                          # /Users/ova/RubymineProjects/Miracle/features/sign_in.feature:30[0m
+    [32mWhen [32m[1mVisitor[0m[0m[32m clicks on 'Sign in'[90m                               # features/step_definitions/user_steps.rb:10[0m[0m
+    [32mWhen [32m[1mVisitor[0m[0m[32m tries to login with email and "[32m[1mfgfgfg2n[0m[0m[32m" password[90m # features/step_definitions/user_steps.rb:21[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m should see message about not registered data[90m      # features/step_definitions/user_steps.rb:51[0m[0m
+
+Feature: Sign_up to Outeast
+
+  Background: [90m                  # /Users/ova/RubymineProjects/Miracle/features/sign_up.feature:2[0m
+    [32mGiven Visitor is at [32m[1mOuteast[0m[0m[32m[90m # features/step_definitions/user_steps.rb:5[0m[0m
+
+  Scenario: Sign_up via valid data[90m                                 # /Users/ova/RubymineProjects/Miracle/features/sign_up.feature:5[0m
+    [32mWhen [32m[1mVisitor[0m[0m[32m clicks on 'Sign up'[90m                               # features/step_definitions/user_steps.rb:55[0m[0m
+    [32mWhen [32m[1mVisitor[0m[0m[32m tries to login with email and "[32m[1mqwertyQ1[0m[0m[32m" password[90m # features/step_definitions/user_steps.rb:21[0m[0m
+    [32mThen [32m[1mUser[0m[0m[32m successfully registered[90m                              # features/step_definitions/user_steps.rb:59[0m[0m
+
+  Scenario: Sign_up via already registered data[90m                                             # /Users/ova/RubymineProjects/Miracle/features/sign_up.feature:10[0m
+    [32mWhen [32m[1mVisitor[0m[0m[32m clicks on 'Sign up'[90m                                                        # features/step_definitions/user_steps.rb:55[0m[0m
+    [32mWhen [32m[1mVisitor[0m[0m[32m tries to login with "[32m[1mjackvaler@gmail.com[0m[0m[32m" username and "[32m[1mqwertyQ1[0m[0m[32m" password[90m # features/step_definitions/user_steps.rb:14[0m[0m
+    [32mThen [32m[1mUser[0m[0m[32m successfully logged[90m                                                           # features/step_definitions/user_steps.rb:30[0m[0m
+
+  Scenario: Sign_up via invalid gmail[90m                                                      # /Users/ova/RubymineProjects/Miracle/features/sign_up.feature:15[0m
+    [32mWhen [32m[1mVisitor[0m[0m[32m clicks on 'Sign up'[90m                                                       # features/step_definitions/user_steps.rb:55[0m[0m
+    [32mWhen [32m[1mVisitor[0m[0m[32m tries to login with "[32m[1mjackvalergmail.com[0m[0m[32m" username and "[32m[1mqwertyQ1[0m[0m[32m" password[90m # features/step_definitions/user_steps.rb:14[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m should see message about wrong email[90m                                      # features/step_definitions/user_steps.rb:63[0m[0m
+
+  Scenario: Sign_up via invalid password[90m                         # /Users/ova/RubymineProjects/Miracle/features/sign_up.feature:20[0m
+    [32mWhen [32m[1mVisitor[0m[0m[32m clicks on 'Sign up'[90m                             # features/step_definitions/user_steps.rb:55[0m[0m
+    [32mWhen [32m[1mVisitor[0m[0m[32m tries to login with email and "[32m[1mqwerty[0m[0m[32m" password[90m # features/step_definitions/user_steps.rb:21[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m should see message about wrong password[90m         # features/step_definitions/user_steps.rb:67[0m[0m
+
+  Scenario: Sign_up via empty password[90m                     # /Users/ova/RubymineProjects/Miracle/features/sign_up.feature:25[0m
+    [32mWhen [32m[1mVisitor[0m[0m[32m clicks on 'Sign up'[90m                       # features/step_definitions/user_steps.rb:55[0m[0m
+    [32mWhen [32m[1mVisitor[0m[0m[32m tries to login with email and "[32m[1m[0m[0m[32m" password[90m # features/step_definitions/user_steps.rb:21[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m should see message about empty password[90m   # features/step_definitions/user_steps.rb:47[0m[0m
+
+  Scenario: Sign_up via empty login[90m                                      # /Users/ova/RubymineProjects/Miracle/features/sign_up.feature:30[0m
+    [32mWhen [32m[1mVisitor[0m[0m[32m clicks on 'Sign up'[90m                                     # features/step_definitions/user_steps.rb:55[0m[0m
+    [32mWhen [32m[1mVisitor[0m[0m[32m tries to login with "[32m[1m[0m[0m[32m" username and "[32m[1mqwertyQ1[0m[0m[32m" password[90m # features/step_definitions/user_steps.rb:14[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m should see message about empty email[90m                    # features/step_definitions/user_steps.rb:43[0m[0m
+
+  Scenario: Sign_up via empty data[90m                               # /Users/ova/RubymineProjects/Miracle/features/sign_up.feature:35[0m
+    [32mWhen [32m[1mVisitor[0m[0m[32m clicks on 'Sign up'[90m                             # features/step_definitions/user_steps.rb:55[0m[0m
+    [32mWhen [32m[1mVisitor[0m[0m[32m tries to login with "[32m[1m[0m[0m[32m" username and "[32m[1m[0m[0m[32m" password[90m # features/step_definitions/user_steps.rb:14[0m[0m
+    [32mThen [32m[1mVisitor[0m[0m[32m should see message about empty fields[90m           # features/step_definitions/user_steps.rb:38[0m[0m
 
 [31mFailing Scenarios:[0m
-[31mcucumber /Users/ova/RubymineProjects/Miracle/features/search_header.feature:16[0m[90m # Scenario: Search by 3 numbers (addresses)[0m
-[31mcucumber /Users/ova/RubymineProjects/Miracle/features/search_header.feature:21[0m[90m # Scenario: Results number of title the same as results[0m
-[31mcucumber /Users/ova/RubymineProjects/Miracle/features/search_header.feature:26[0m[90m # Scenario: Results are not displayed if there are no result[0m
-[31mcucumber /Users/ova/RubymineProjects/Miracle/features/search_header.feature:32[0m[90m # Scenario: Direct from results page (address)[0m
-[31mcucumber /Users/ova/RubymineProjects/Miracle/features/search_header.feature:39[0m[90m # Scenario: Direct from results page (town)[0m
-[31mcucumber /Users/ova/RubymineProjects/Miracle/features/search_header.feature:46[0m[90m # Scenario: Search by 2spaces[0m
-[31mcucumber /Users/ova/RubymineProjects/Miracle/features/search_header.feature:51[0m[90m # Scenario: Close search icon (main page)[0m
-[31mcucumber /Users/ova/RubymineProjects/Miracle/features/search_header.feature:56[0m[90m # Scenario: Close search icon (rental page)[0m
-[31mcucumber /Users/ova/RubymineProjects/Miracle/features/search_header.feature:62[0m[90m # Scenario: Close search icon (sales page)[0m
-[31mcucumber /Users/ova/RubymineProjects/Miracle/features/search_header.feature:68[0m[90m # Scenario: Direct to recently view from search[0m
+[31mcucumber /Users/ova/RubymineProjects/Miracle/features/profile.feature:30[0m[90m # Scenario: Click from Saved searches[0m
 
-12 scenarios ([31m10 failed[0m, [32m2 passed[0m)
-67 steps ([31m10 failed[0m, [36m46 skipped[0m, [32m11 passed[0m)
-0m32.934s
+69 scenarios ([31m1 failed[0m, [32m68 passed[0m)
+497 steps ([31m1 failed[0m, [36m4 skipped[0m, [32m492 passed[0m)
+9m28.281s
