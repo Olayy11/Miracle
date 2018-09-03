@@ -8,7 +8,8 @@ end
 
 #common part for login steps
 When /^(.+) clicks on 'Sign in'$/  do |role|
-  find('div.Header-actionWrapper').find('a.Header-actionName:nth-child(1)').click
+  # find('div.Header-actionWrapper').find('a.Header-actionName:nth-child(1)').click
+  find(".Header-actionName", :text => "Sign In").click
  end
 
 When /^(.+) tries to login with "(.*?)" username and "(.*?)" password$/ do |role, user, password|
@@ -53,7 +54,8 @@ When /^(.+) should see message about not registered data$/ do |role|
 end
 
 When /^(.+) clicks on 'Sign up'$/  do |role|
-  find('div.Header-actionWrapper').find('a.Header-actionName:nth-child(2)').click
+  # find('div.Header-actionWrapper').find('a.Header-actionName:nth-child(2)').click
+  find(".Header-actionName", :text => "Sign Up").click
 end
 
 When /^(.+) successfully registered$/ do |role|

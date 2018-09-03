@@ -1,6 +1,6 @@
 Capybara.register_driver :chrome do |app|
   chrome_args = %w[window-size=2048,1080]
-   # chrome_args += %w[headless disable-gpu] unless ENV['TEST_CARTOON']
+  #  chrome_args += %w[headless disable-gpu] unless ENV['TEST_CARTOON']
   chrome_args += %w[no-sandbox disable-web-security --blink-settings=imagesEnabled=false]
   capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(chromeOptions: { args: chrome_args })
   Capybara::Selenium::Driver.new(app, browser: :chrome, desired_capabilities: capabilities)
@@ -43,12 +43,20 @@ After do |scenario|
   # page.driver.browser.manage.delete_all_cookies
 end
 
+After do
+ #p "after"
+ Capybara.reset_sessions!
+ # page.driver.browser.manage.delete_all_cookies
+ sleep 3
+end
+
 RSpec.configure do |config|
   config.before(:each) do
     config.include Capybara::DSL
   end
 
   config.after(:each) do
+    p 'after each'
     Capybara.reset_sessions!
     page.driver.browser.manage.delete_all_cookies
   end

@@ -1,6 +1,6 @@
-features/search_header.feature:110.25166511535645
-features/sign_in.feature:14.033777952194214
-features/sign_up.feature:18.864651203155518
-features/logged_smoky.feature:143.25761890411377
-features/guest_smoky.feature:178.0801658630371
-features/profile.feature:194.17039108276367
+features/search_header.feature:135.5114061832428
+features/logged_smoky.feature:135.9591100215912
+features/sign_in.feature:27.969066858291626
+features/sign_up.feature:33.74922585487366
+features/profile.feature:217.07828187942505
+features/guest_smoky.feature:232.4170262813568

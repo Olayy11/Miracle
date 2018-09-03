@@ -36,12 +36,12 @@ end
 And /^(.+) should see Your account Modal$/ do |role|
   expect(page).to have_css(".Popover")
 end
-Then /^(.+) clicks "(.*?)" item$/ do |role, item|
-find(link_account, :text => item).click
+  Then /^(.+) clicks "(.*?)" item$/ do |role, item|
+  find(link_account, :text => item).click
 end
 
 And /^(.+) should see Signin$/ do |role|
-expect(page).to have_css(".Header-actionName", :text=>"Sign In")
+  expect(page).to have_css(".Header-actionName", :text=>"Sign In")
 end
 
 And /^(.+) should see "(.*?)" is active$/ do |role, saved|

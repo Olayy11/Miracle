@@ -15,7 +15,8 @@ include VarHelper
 
 
 And (/^(.+) is logged as user$/) do |role|
-  find('div.Header-actionWrapper').find('a.Header-actionName:nth-child(1)').click
+#  find('.Header-actionWrapper').find('a.Header-actionName:nth-child(1)').click
+  find(".Header-actionName", :text => "Sign In").click
   fill_in 'email', :with => 'nunuveko@sfamo.com'
   fill_in 'password', :with => '12345678'
   click_button 'Sign'
